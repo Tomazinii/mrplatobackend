@@ -1,0 +1,1 @@
+from .django_adapter import django_adapter

@@ -1,4 +1,3 @@
-from urllib import response
 from django.shortcuts import render
 from community.models import Ask,Answer
 from api.serializers import ContentSerializer,NotificationSerializer
@@ -6,7 +5,6 @@ from content.models import Content
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 # Create your views here.
-from rest_framework.response import Response
 from rest_framework.generics import ListAPIView
 from rest_framework import status
 from notification.models import Notification
@@ -137,3 +135,14 @@ class TournammentMember(ModelViewSet):
 		score(type="games",question_id=2, user=self.request.user,time=0,attempet=0)
 		return super().get_queryset()
 	
+
+from adapter import django_adapter
+from composer import integration_mrplato_composite
+
+class IntegrationMrplatoView(APIView):
+	def get(self,request):
+		return Response({"okokokokok"})
+
+	def post(self,request):
+		response = django_adapter(request=request, api_route=integration_mrplato_composite())
+		return Response(response.body,status=response.status_code)

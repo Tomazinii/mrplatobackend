@@ -1,0 +1,1 @@
+from .integration_composite import integration_mrplato_composite
