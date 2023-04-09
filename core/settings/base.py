@@ -68,7 +68,8 @@ INSTALLED_APPS = [
     "users",
     "community",
     "channels",
-    "tournamment",    
+    "tournamment",
+    "entities.listexercises"
 ]
 
 MIDDLEWARE = [

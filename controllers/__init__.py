@@ -1,1 +1,2 @@
 from .integration_mrplato import IntegrationController
+from .get_list_exercise import GetListExerciseController

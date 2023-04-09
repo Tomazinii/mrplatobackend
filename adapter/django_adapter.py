@@ -7,7 +7,8 @@ http_error = HttpErrors()
 
 def django_adapter(request: any, api_route: Type[RouteInterface]):
     query_string = request.query_params
-    http_request = HttpRequest(header=request.headers,body=request.data, query=query_string)
+
+    http_request = HttpRequest(header=request.headers,body=request.data, query=query_string, method=request.method)
     try:
         response = api_route.route(http_request)
         return response

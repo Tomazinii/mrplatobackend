@@ -1,1 +1,2 @@
 from .integration_composite import integration_mrplato_composite
+from .get_list_exercise import get_list_exercise_composite

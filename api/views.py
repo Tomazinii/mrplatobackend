@@ -1,3 +1,4 @@
+from urllib import request
 from django.shortcuts import render
 from community.models import Ask,Answer
 from api.serializers import ContentSerializer,NotificationSerializer
@@ -137,7 +138,7 @@ class TournammentMember(ModelViewSet):
 	
 
 from adapter import django_adapter
-from composer import integration_mrplato_composite
+from composer import integration_mrplato_composite, get_list_exercise_composite
 
 class IntegrationMrplatoView(APIView):
 	def get(self,request):
@@ -146,3 +147,11 @@ class IntegrationMrplatoView(APIView):
 	def post(self,request):
 		response = django_adapter(request=request, api_route=integration_mrplato_composite())
 		return Response(response.body,status=response.status_code)
+
+
+class ExerciseListView(APIView):
+	""" this is class exercise view """
+
+	def get(self, request):
+		response = django_adapter(request=request, api_route=get_list_exercise_composite())
+		return Response(response.body, response.status_code)

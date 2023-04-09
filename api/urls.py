@@ -4,7 +4,7 @@ from unicodedata import name
 from django.urls import path,include,re_path
 from rest_framework import routers
 
-from .views import ApiAnswerView, ApiAskView, ApiContent, ApiNotification, ApiQuestionGameView, ApiTest, ListExerciseView, ListGameView,api_test,ApiQuestionExercise,ListChallengeView,ApiChallengeQuestion,TournammentGroup,TournammentMember,IntegrationMrplatoView
+from .views import ApiAnswerView, ApiAskView, ApiContent, ApiNotification, ApiQuestionGameView, ApiTest, ListExerciseView, ListGameView,api_test,ApiQuestionExercise,ListChallengeView,ApiChallengeQuestion,TournammentGroup,TournammentMember,IntegrationMrplatoView,ExerciseListView
 
 from rest_framework.routers import SimpleRouter
 
@@ -28,4 +28,5 @@ urlpatterns = [
     path("tournamment-group/",TournammentGroup.as_view({"get":"list"})),
     path("tournamment-member/",TournammentMember.as_view({"get":"list"})),
     path("mrplato/", IntegrationMrplatoView.as_view(), name="mrplato"),
+    path("exercises/", ExerciseListView.as_view(), name="exercises")
 ]

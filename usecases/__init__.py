@@ -1,1 +1,2 @@
 from .integration_mrplato import IntegrationMrplato
+from .get_list_exercise import GetListExercise

@@ -1,1 +1,2 @@
 from .integration_interface import IntegrationInterface
+from .get_list_exercise import GetListExerciseInterface

@@ -2,13 +2,14 @@ from typing import Dict
 
 class HttpRequest:
 
-    def __init__(self, header: Dict = None, body: Dict = None, query: Dict = None):
+    def __init__(self, header: Dict = None, body: Dict = None, query: Dict = None, method: str = None):
         self.header = header
         self.body = body
         self.query = query
+        self.method = method
 
     def __repr__(self) -> str:
-        return f"HttpRequest(body: {self.body}, header:{self.header}, query:{self.query})"
+        return f"HttpRequest(body: {self.body}, header:{self.header}, query:{self.query}, method:{self.method})"
  
 
 
