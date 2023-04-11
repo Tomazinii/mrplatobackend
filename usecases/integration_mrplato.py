@@ -1,3 +1,4 @@
+from cgi import print_arguments
 from typing import Type,Dict
 from mrplatoweb.mrplatoweb.main import ProofWindow, InputArgumentBox
 from interfaces.use_case import IntegrationInterface
@@ -19,11 +20,12 @@ class IntegrationMrplato(IntegrationInterface):
 
 
     def apply(self, sel_lines: list, index_exercise: int, index_list_exercise: int, selected_rule_index: dict, new_line: list ) -> dict:
-        list_of_problems = self.repository.get_list(index_list_exercise=index_list_exercise)
-        
+        list_of_problems = self.repository.get_list(index_list_exercise=index_list_exercise)[0]["list_of_problems"]
+        # list_of_problems = ['1 - p → q , p ⊢ q', '2 - p → q , ~q ⊢ ~p', '3 - p → q , q → s ⊢ p → s', '4 - p , q ⊢ p']
+
         if len(new_line) != 0:
             list_of_problems = self.temp_add_new_line(list_of_problems, new_line, index_exercise)
-        
+
         pw = self.proofwindow
         in_box = self.inputargument
         pw.selected_lines = sel_lines
@@ -34,8 +36,12 @@ class IntegrationMrplato(IntegrationInterface):
         r, msg, new_line = pw.appRule()
         new_line = new_line.__str__()
 
+
         if r:
-            return {"success":r,"message":msg,"row": new_line}
-        else:
+            return {"success":r,"message":msg,"line": new_line}
+        elif new_line != str(None):
             return {"success":False, "message":msg, "line": new_line}
+        else:
+            return {"success":False, "message":msg, "line": ""}
+
 

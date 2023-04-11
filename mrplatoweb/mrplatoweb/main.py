@@ -725,7 +725,7 @@ class ProofWindow():
                 rule_nick = 'nothing'
         except:
           #kivy  PopupMessage('CHOOSE A RULE FIRST, PLEASE.', '#FF33FF')  # cor lilás
-            return 'CHOOSE A RULE FIRST, PLEASE.'
+             raise Exception('CHOOSE A RULE FIRST, PLEASE.')
 
         print(f'self.proof_lines:{self.proof_lines}')
 
@@ -763,7 +763,7 @@ class ProofWindow():
             if ruleType == 'INF':  # Inference rule
                 r, message, new_line = self.appInfRule(ruleNumber)
             elif ruleType == 'EQ':  # Equivalence rule
-                r, message = self.appEquivRule(ruleNumber)
+                r, message, new_line = self.appEquivRule(ruleNumber)
             else:  # Predicate rule
                 r, message = self.appPredRule(ruleNumber)
 
@@ -1407,9 +1407,9 @@ class ProofWindow():
 
             if r:
                 r1, message = self.update_proof(r, new_line, str(index))
-                return  r1, message
+                return  r1, message, new_line
             else:
-                return r, msg
+                return r, msg, new_line
 
     
     def initProof(self,premisses,conclusion):

@@ -12,12 +12,12 @@ from mrplatoweb.mrplatoweb.main import ProofWindow, InputArgumentBox
 pw = ProofWindow()
 # pw.resetApp()
 in_box = InputArgumentBox()
-sel_rule = 6
-sel_lines = [0,1]
-list_of_problems = ['1 - p → q , p ⊢ q', '2 - p → q , ~q ⊢ ~p', '3 - p → q , q → s ⊢ p → s', '4 - p , q ⊢ p']
+sel_rule = 43
+sel_lines = [1]
+list_of_problems = ['1 - p → q , p ⊢ q', '2 - p → q , ~q ⊢ ~p', '3 - p → q , q → s ⊢ p → s', '4 - p , q ⊢ p', '11 - ~ p -> ~ q , q ⊢ p']
 
 pw.selected_lines = sel_lines
-pw.selected_rule_index = ('INF', sel_rule)
+pw.selected_rule_index = ('EQ', sel_rule)
 pw.infCheckBox = sel_rule
 
 # handle = args[0]
@@ -25,7 +25,7 @@ pw.infCheckBox = sel_rule
 # problemListName = args[2]
 # line = args[4]
 
-line = list_of_problems[3]
+line = list_of_problems[4]
 
 #handle.resetInput()
 # self.list_of_problems = self.remove_comments(self.list_of_problems)
@@ -35,6 +35,8 @@ print('APLYING THE RULE')
 r, msg, new_line = pw.appRule()
 
 print(f'r:{r}')
+
+print("NEW_LINE", new_line)
 
 if r:
     print('Processing ended with success!')
