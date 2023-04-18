@@ -19,14 +19,15 @@ jobs:
       # Faça o deploy para a máquina virtual via SSH
 
 workflows:
-  version: 2
   build-and-deploy:
     jobs:
-      - build
-      - deploy-prod:
+      - build:
           filters:
             branches:
-              only:
-                - master
+              only: feat/api/exercise
+      - deploy:
           requires:
             - build
+          filters:
+            branches:
+              only: feat/api/exercise
