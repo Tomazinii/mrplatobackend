@@ -3,7 +3,6 @@ version: 2.1
 jobs:
   build:
     environment:
-      DATABASE_URL: $DATABASE_URL
     docker:
       - image: circleci/python:3.8
 
@@ -28,11 +27,7 @@ jobs:
 
       - run:
           name: "Install AWS CLI"
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y awscli
-            sudo apt-get install -y python3-pip
-            sudo pip3 install awsebcli --upgrade
+          command: pip install -r requirements.txt
 
       - run: ssh -oStrictHostKeyChecking=no -v cedric@200.137.197.240 -p 30240 “./deploy_project.sh”
 
