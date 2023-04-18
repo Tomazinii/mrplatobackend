@@ -1,0 +1,251 @@
+
+Class:
+
+    O aluno só pode pertencer a uma classe
+
+    O professor pode ter varias turmas
+
+    Interface de admin para cada turma
+
+    Acompanhamento de Progresso: Acompanhar o progresso dos estudantes em cada turma, registrando notas, frequência, e outras informações relevantes para avaliação do desempenho dos estudantes.
+
+    Registro e Consulta de Turmas: Registrar e manter informações precisas e atualizadas sobre as turmas disponíveis, permitindo a consulta e pesquisa de turmas por diferentes critérios, como disciplina, professor, horário, entre outros.
+
+    Controle de Acesso: Garantir que apenas estudantes matriculados em uma turma específica tenham acesso às aulas e recursos associados a essa turma, bem como garantir que apenas professores autorizados possam ministrar aulas em turmas específicas.
+
+    Controle de Conflitos: Lidar com conflitos ou problemas que possam surgir em relação às turmas, como trocas de turmas, mudanças de horários, desistências, e resolver de acordo com as políticas e procedimentos estabelecidos.
+
+    Relatórios e Análises: Gerar relatórios e análises sobre as turmas, incluindo dados como desempenho dos estudantes, taxas de ocupação, eficiência do uso de recursos, entre outros, para fins de análise e tomada de decisões.
+
+
+
+User:
+
+    Validar se file é válido para submissão
+
+    Regra de negócio para verificação de autenticação e autorização de um usuário ao acessar recursos ou funcionalidades da plataforma.
+
+    Regra de negócio para gerenciamento de permissões de acesso de um usuário com base em seu papel ou nível de privilégio.
+
+    Regra de negócio para validação de credenciais de um usuário ao realizar login na plataforma.
+
+    Regra de negócio para controle de tentativas de login malsucedidas e bloqueio temporário de contas por motivos de segurança.
+
+    Regra de negócio para gerenciamento de histórico de atividades de um usuário na plataforma, como registros de login, ações realizadas, entre outros.
+
+    Regra de negócio para notificação ou alerta de eventos importantes ou relevantes para um usuário, como atualizações de conteúdo, prazos, eventos, entre outros.
+
+
+Exercises:
+
+    Validador para upload de arquivo Text
+
+    Regra de negócio para validação de campos obrigatórios no cadastro de um novo exercício.
+
+    Regra de negócio para verificação de duplicidade de título ou código de exercício durante o cadastro.
+
+    Regra de negócio para validação de formato e tamanho de questões e respostas em um exercício.
+
+    Regra de negócio para controle de acesso a exercícios com base na permissão e nível de dificuldade atribuídos a um usuário.
+
+    Regra de negócio para controle de tempo de execução de um exercício, como cronômetro, limite de tempo para resolução, entre outros.
+
+    Regra de negócio para gerenciamento de estatísticas de desempenho de um usuário em exercícios, como pontuação, tempo de resolução, histórico de tentativas, entre outros.
+
+    Regra de negócio para validação de respostas de um exercício, incluindo correção automática e feedback ao usuário.
+
+    Regra de negócio para gerenciamento de progresso de um usuário em exercícios, incluindo acompanhamento de avanço, histórico de resolução, entre outros.
+
+    Regra de negócio para gerenciamento de revisões, aprovações ou modificações de exercícios por parte de revisores ou moderadores da plataforma.
+
+    Regra de negócio para gerenciamento de relatórios, estatísticas ou insights sobre o desempenho dos usuários em exercícios, para avaliação, análise ou feedback.
+    
+    Recursos de ajuda: Disponibilizar recursos de ajuda aos usuários, como dicas, exemplos e explicações adicionais para auxiliar na resolução dos exercícios.
+
+    Personalização de exercícios: Permitir aos usuários personalizar exercícios de acordo com suas preferências, como ajuste de nível de dificuldade, escolha de tópicos específicos, entre outros.
+
+
+
+
+MRPLATO:
+
+    Relatórios de desempenho: Gerar relatórios de desempenho para os usuários, fornecendo informações detalhadas sobre seu progresso, pontos fortes e pontos fracos.
+
+
+
+Statistic:
+
+    Coleta de dados: Realizar a coleta de dados relevantes sobre a performance dos usuários, como tempo gasto em exercícios, número de exercícios resolvidos, pontuações obtidas, entre outros.
+
+    Processamento de dados: Processar e analisar os dados coletados para gerar estatísticas relevantes, como médias, desvios padrão, percentis, entre outros indicadores.
+
+    Relatórios de desempenho: Gerar relatórios de desempenho para os usuários, fornecendo informações detalhadas sobre seu progresso, pontos fortes e pontos fracos.
+
+    Comparação de desempenho: Permitir a comparação do desempenho do usuário com outros usuários, seja em nível individual, de turma ou de comunidade.
+
+    Análise de tendências: Identificar e analisar tendências de desempenho ao longo do tempo, possibilitando a identificação de padrões e insights relevantes.
+
+    Personalização de estatísticas: Permitir aos usuários personalizar as estatísticas exibidas de acordo com suas preferências e objetivos de aprendizado.
+
+    Privacidade e segurança dos dados: Implementar medidas de privacidade e segurança dos dados estatísticos dos usuários, garantindo a confidencialidade e integridade das informações coletadas.
+
+
+
+Ranking:
+
+    Recompensas e incentivos: Oferecer recompensas e incentivos aos usuários com base em seu desempenho, como medalhas, pontos, níveis de progresso, entre outros.
+
+    Cálculo de pontuação: A pontuação pode ser calculada com base em critérios específicos, como o número de exercícios concluídos corretamente, o tempo gasto para responder a cada exercício, o nível de dificuldade dos exercícios, entre outros.
+
+    Validação de pontuação: A pontuação deve ser validada para garantir que apenas pontuações legítimas e válidas sejam consideradas no sistema, evitando fraudes ou manipulações.
+
+    Registro de pontuação: A pontuação obtida pelos usuários deve ser registrada de forma precisa e confiável no sistema, para que possa ser utilizada para cálculos e exibição em rankings ou outras funcionalidades.
+
+    Restrições de pontuação: O sistema pode estabelecer restrições na pontuação, por exemplo, limitando o número máximo de pontos que um usuário pode obter em determinado período de tempo, ou estabelecendo limites máximos e mínimos de pontuação.
+
+    Atualização de pontuação: A pontuação pode ser atualizada automaticamente sempre que um usuário conclui um exercício, ou de acordo com outras ações específicas realizadas pelos usuários.
+
+    Exibição de pontuação aos usuários: Os usuários devem ter acesso à sua pontuação atualizada de forma clara e transparente, permitindo-lhes acompanhar seu progresso e desempenho na plataforma.
+
+    Transparência e visibilidade da pontuação: A pontuação obtida pelos usuários deve ser transparente e visível para eles, de forma que possam compreender como ela é calculada e quais critérios são considerados.
+
+    Segurança e integridade da pontuação: O sistema deve garantir a segurança e integridade da pontuação, protegendo-a contra acesso não autorizado, manipulações ou alterações indevidas.
+
+
+
+Content:
+    Organização e categorização de conteúdos: Os conteúdos podem ser organizados e categorizados de forma a facilitar a navegação e busca dos usuários, seguindo critérios como assunto, nível de dificuldade, tipo de conteúdo, entre outros.
+
+    Atualização de conteúdos: Os conteúdos podem precisar ser atualizados periodicamente para garantir sua relevância e precisão, sendo necessário estabelecer processos de atualização e revisão.
+
+    Exclusão de conteúdos: Os conteúdos obsoletos, impróprios ou desatualizados podem precisar ser excluídos da plataforma, seguindo políticas de exclusão e remoção de conteúdos.
+
+
+
+Solution:
+
+    Feedback ao usuário: Após a correção automática, é importante fornecer um feedback ao usuário sobre a sua resposta, indicando se está correta ou incorreta, e fornecendo informações adicionais, como a solução correta, dicas, ou explicações detalhadas.
+
+    Armazenamento de soluções: As soluções dos exercícios podem ser armazenadas para acompanhamento do progresso do usuário, histórico de respostas, ou para análises estatísticas e gerenciamento de dados.
+
+    Controle de acesso às soluções: O acesso às soluções de exercícios pode ser restrito a determinados usuários, como por exemplo, soluções avançadas disponíveis apenas para usuários com nível de habilidade específico. É importante estabelecer regras de acesso e restrições adequadas.
+
+    Privacidade e segurança das soluções: É fundamental garantir a privacidade e segurança das soluções de exercícios dos usuários, protegendo suas informações e garantindo que não sejam acessadas ou utilizadas indevidamente.
+
+
+Answer:
+
+    Validade da resposta: A resposta fornecida pelo usuário deve ser validada quanto à sua estrutura, formato, e coerência em relação ao exercício proposto.
+
+    Restrições de resposta duplicada: É possível estabelecer regras que não permitam que os usuários enviem respostas duplicadas ou repetidas para o mesmo exercício, evitando duplicidade de dados.
+
+    Controle de tempo de resposta: É possível definir regras que restrinjam o tempo de resposta permitido para cada exercício, garantindo que as respostas sejam enviadas dentro do prazo estabelecido.
+
+
+
+
+
+Notification:
+
+    Envio de notificações: As notificações devem ser enviadas de acordo com as preferências de notificação configuradas pelos usuários, como notificações por e-mail, notificações push, ou SMS.
+
+    Gerenciamento de notificações não lidas: É possível registrar e gerenciar as notificações não lidas pelos usuários, permitindo que eles acessem as notificações pendentes em uma área dedicada ou recebam lembretes para visualização de notificações não lidas.
+
+    Restrição de notificações em massa: É possível estabelecer regras que restrinjam o envio de notificações em massa, evitando o envio excessivo de notificações e a sobrecarga dos usuários.
+
+    Registro de histórico de notificações: É possível registrar o histórico de notificações enviadas aos usuários, permitindo o acompanhamento e a análise do desempenho das notificações para melhorias futuras.
+
+Statistic_User:
+    Os dados de estatística de usuário devem ser coletados de forma precisa e confiável, garantindo a integridade dos dados.
+
+    A plataforma deve realizar cálculos estatísticos corretos com base nos dados coletados, seguindo as regras de cálculo e análise estatística adequadas.
+
+    As estatísticas de usuário devem ser acessíveis apenas para os usuários autorizados e protegidas contra acesso não autorizado ou violações de privacidade.
+
+    A plataforma deve fornecer uma interface de usuário clara e compreensível para visualização das estatísticas de usuário, apresentando as informações de forma organizada e fácil de entender.
+
+    A plataforma pode enviar notificações ou alertas aos usuários com base nas estatísticas de desempenho, como lembretes de exercícios pendentes, parabenizações por alcançar metas, ou alertas de baixo desempenho em determinadas áreas.
+
+    As estatísticas de usuário devem ser mantidas em conformidade com as leis de privacidade e proteção de dados aplicáveis, garantindo o tratamento adequado das informações dos usuários.
+    
+
+Statistic_General:
+
+Comentary:
+
+Os comentários devem ser moderados para garantir que não contenham conteúdo ofensivo, discriminatório ou inadequado.
+
+Os comentários podem ser limitados em tamanho e formato, para evitar abusos ou excesso de informação.
+
+Os comentários devem ser exibidos de forma clara e organizada, permitindo a fácil leitura e compreensão pelos usuários.
+
+Os usuários podem editar ou excluir seus próprios comentários, desde que estejam dentro das regras de uso da plataforma.
+
+A plataforma pode fornecer funcionalidades de curtir,responder aos comentários, para promover a interação entre os usuários.
+
+Os comentários devem ser armazenados de forma segura, protegidos contra acesso não autorizado e em conformidade com as leis de privacidade e proteção de dados aplicáveis.
+
+A plataforma pode utilizar ferramentas de detecção de spam ou conteúdo inadequado para filtrar automaticamente os comentários indesejados.
+
+Os comentários podem ser usados como feedback pelos administradores da plataforma para avaliar a qualidade do conteúdo ou exercícios.
+
+Os comentários podem ser organizados por tópicos, categorias ou tags, para facilitar a navegação e pesquisa pelos usuários.
+
+Os comentários podem ser utilizados para promover a discussão e interação entre os usuários, incentivando a troca de conhecimento e experiências.
+
+Os comentários podem ser exibidos em ordem cronológica, com os mais recentes primeiro, ou em ordem de relevância, com base em algoritmos de classificação.
+
+
+Config:
+  Som, notificação
+
+
+Tournammnet:
+
+    Os torneios devem ter regras claras e transparentes, incluindo formato, cronograma, prêmios, critérios de pontuação e outras informações relevantes.
+
+    Os torneios devem ser realizados de forma justa e imparcial, sem favorecimento ou discriminação entre os participantes.
+
+    Os resultados dos torneios devem ser calculados com precisão e transparência, utilizando critérios previamente estabelecidos nas regras do torneio.
+
+    Os torneios podem ter políticas de desclassificação ou penalidades para participantes que violarem as regras estabelecidas, como trapaças, comportamento antiético ou uso de exploits.
+
+    A plataforma pode fornecer ferramentas de acompanhamento e atualização em tempo real dos resultados dos torneios, para manter os participantes informados sobre seu desempenho.
+
+    A plataforma pode fornecer ferramentas de comunicação e interação entre os participantes dos torneios, para promover a camaradagem e a competição saudável.
+
+    Os torneios podem ter uma estrutura de premiação justa e equitativa, de acordo com as regras estabelecidas e os resultados alcançados pelos participantes.
+
+    Os organizadores dos torneios devem ser responsáveis pela administração adequada dos recursos, prêmios e outras atividades relacionadas
+
+
+Groups:
+
+    As atividades em grupo devem ser organizadas por um líder ou moderador designado, que será responsável pela coordenação e gestão da atividade.
+
+    As atividades em grupo podem ter restrições de participação, como número máximo de participantes, requisitos de habilidade ou outro critério determinado pelo líder ou moderador.
+
+    As atividades em grupo devem ser realizadas de forma inclusiva e respeitosa, com espaço para a participação de todos os membros e a promoção de um ambiente seguro e amigável.
+    
+    As atividades em grupo podem ter uma agenda ou cronograma estabelecido, com prazos, horários e outras informações relevantes para os participantes.
+
+    As atividades em grupo podem ser monitoradas pelo MRPLATO para garantir o cumprimento das regras estabelecidas e a segurança dos participantes.
+
+    Um usuario só pode pertencer a um grupo
+
+    Validar pin de grupo caso exista senha.
+
+Challenges:
+
+Os Desafios devem ter um nível de dificuldade mais alto em comparação com outras atividades disponíveis, oferecendo exercícios mais desafiadores e complexos para os participantes.
+
+Os Desafios devem ser feitos de forma individual, sem permitir a colaboração ou ajuda de outros participantes, para garantir que os usuários resolvam os exercícios por conta própria.
+
+Os Desafios podem ter prazos estabelecidos para sua conclusão, incentivando os participantes a cumprirem os prazos e aprimorarem suas habilidades de gerenciamento de tempo.
+
+Os Desafios podem ter um sistema de pontuação ou classificação, que avalia o desempenho dos participantes com base em critérios predefinidos, como precisão, velocidade ou outros indicadores de desempenho.
+
+Os Desafios podem ser atualizados periodicamente, com a adição de novos exercícios ou a remoção de exercícios obsoletos, para manter a relevância e o interesse dos participantes.
+
+
+

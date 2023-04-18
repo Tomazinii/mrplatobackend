@@ -15,6 +15,6 @@ class GetListExercise(GetListExerciseInterface):
         if index_list_exercise and isinstance(index_list_exercise, int):
             list_exercise = self.repository.get_list(index_list_exercise=index_list_exercise)
             return list_exercise
-        else:
-            list_exercise = self.repository.get_list()
-            return list_exercise
+
+        list_exercise = self.repository.get_list()
+        return list_exercise

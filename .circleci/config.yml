@@ -1,60 +1,18 @@
-version: 2.1
-
-
-
-
-orbs:
-  heroku: circleci/heroku@0.0.10 # Invoke the Heroku orb
-
-workflows:
-  heroku_deploy:
-    jobs:
-      - build
-      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
-          requires:
-            - build
-          filters:
-            branches:
-              # only: sequential-branch-filter
-              only: master
+version: 2
 jobs:
   build:
     docker:
-      - image: alotropo/webserver
-        auth:
-          username: alotropo
-          password: d23m03a1998  # context / project UI env-var reference
-      # - image: cimg/postgres:14.1
-      #   auth:
-      #     username: a@a.com
-      #     password: root # context / project UI env-var reference
-    working_directory: ~/circleci-demo-workflows
+      - image: circleci/python:3.8
     steps:
-      - checkout
       - run:
-          name: Run tests
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install docker-compose
-            pip install -r requirements.txt
-            python -m pytest
-
-  deploy:
-      machine:
-          enabled: true
-      working_directory: ~/circleci-demo-workflows
-      environment:
-        HEROKU_APP: "sleepy-refuge-55486" # define env var $HEROKU_APP
-      steps:
-        - checkout
-        - run:
-            name: Setup Heroku
-            command: bash .circleci/setup-heroku.sh # run a script to set up Heroku
-
-        - run:
-            command: |
-              git push heroku sequential-branch-filter:main
-              heroku run rake db:migrate
-              sleep 5 # sleep for 5 seconds to wait for dynos
-              heroku restart
+          name: Decodificar chave SSH
+          command: echo $SSH_PRIVATE_KEY | base64 --decode > ~/.ssh/circleci_rsa
+      - run:
+          name: Alterar permissões da chave
+          command: chmod 600 ~/.ssh/circleci_rsa
+      - run:
+          name: Adicionar chave SSH ao agente
+          command: eval "$(ssh-agent -s)"; ssh-add ~/.ssh/circleci_rsa
+      - run:
+          name: Clonar repositório
+          command: echo "asdf"

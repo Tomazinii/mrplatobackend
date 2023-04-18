@@ -1,0 +1,151 @@
+
+# Class:
+  atributos:
+
+    ID da Turma: Um identificador único para cada turma, geralmente um número ou código alfanumérico que a diferencia das demais turmas.
+
+    Nome da Turma: O nome ou identificação da turma, que pode ser uma combinação de letras, números ou palavras, para identificá-la de forma única.
+
+    Professor Responsável: O nome ou identificação do professor responsável pela turma, que pode ser o educador encarregado de ministrar as aulas e acompanhar o progresso dos estudantes.
+
+    Ano ou Período Letivo: O ano ou período letivo em que a turma está sendo oferecida, como o ano escolar, semestre ou trimestre correspondente.
+
+
+#User:
+  atributos: 
+    - photo
+    - username
+    - nick
+    - matriculation
+    - email
+    - turma
+
+Content:
+  atributos: 
+    - Topic
+    - Title
+    - Text
+    - Slug
+    - image
+
+Solution:
+  atributos:
+    - Id question
+    - Text
+
+Answer_Exercices:
+  atributos:
+
+    ID da resposta: Um identificador único para cada resposta, utilizado para identificar e referenciar a resposta no sistema.
+
+    Data e hora da resposta: A data e hora em que a resposta foi registrada.
+
+    Status da resposta: O status da resposta, como "correta", "incorreta", "pendente", "anulada", entre outros.
+
+    ID do exercício: O identificador único do exercício associado à resposta.
+
+    Categoria da Pontuação: A categoria ou tipo de pontuação, se houver várias categorias ou critérios de pontuação diferentes, como esportes, finanças, classificação de habilidades, etc.
+
+    ID do usuário: O identificador único do usuário que forneceu a resposta.
+
+    Tentativas: quantidade
+
+Ask:
+  atributos:
+    title 
+    Text
+	  User
+	  created
+    image
+
+List Exercises:
+  atributos:
+    - list_name
+    - file
+    - Slug
+    - id
+
+Notification:
+  atrbutos:
+    Turma
+    ID: Um identificador único para cada notificação, que pode ser um número ou uma sequência de caracteres.
+    Remetente: O remetente da notificação, que pode ser um usuário, um sistema ou uma entidade relacionada.
+    Destinatário: O destinatário da notificação, que pode ser um usuário específico, um grupo de usuários ou uma entidade relacionada.
+    Título: O título ou assunto da notificação, que pode resumir o conteúdo ou objetivo da mensagem.
+    Mensagem: O conteúdo da notificação, que pode incluir informações detalhadas, instruções, avisos ou outros tipos de comunicação.
+    Data de envio: A data e hora em que a notificação foi enviada ou gerada.
+    Tipo: O tipo de notificação, que pode ser relacionado a eventos específicos, como convites, atualizações, alertas, etc.
+    Urgência: A urgência ou prioridade da notificação, que pode ser alta, média ou baixa, indicando a importância relativa da mensagem.
+    Canal de entrega: O canal de entrega utilizado para enviar a notificação, como e-mail, SMS, push notification, entre outros.
+    Configurações de notificação: As configurações de preferências do destinatário em relação às notificações, como opções de silenciamento, configurações de som, horários de recebimento, entre outros.
+
+Statistic_User:
+
+Statistic_Geral:
+
+
+Config:
+  atributos:
+    som
+    notification
+
+
+Groups:
+  atributos:
+    turma
+    name
+    slug 
+    pin
+
+Member:
+  atributos:
+    boss 
+    user 
+    group 
+    online
+
+Availability:
+  atributos:
+    - Turma
+    - Time
+    - disponibilidade
+    - categoria
+    - lista de exercícios
+
+
+Ranking:
+  atributos:
+
+    ID do Usuário: Um identificador único para cada usuário que possui uma pontuação, geralmente um número inteiro ou uma sequência alfanumérica.
+
+    Pontuação: A pontuação atribuída ao usuário com base em um critério específico, como pontuação de crédito, pontuação de jogo, pontuação de avaliação, etc.
+
+    Data da Pontuação: A data em que a pontuação foi registrada ou atualizada pela última vez.
+
+
+MRPLATO IA:
+ atributos:
+
+    Nome: O nome dado à inteligência artificial para identificação e referência.
+
+    Capacidades: As capacidades ou habilidades específicas da inteligência artificial, como reconhecimento de imagem, processamento de linguagem natural, tomada de decisões, entre outras.
+
+
+Report:
+  atributos:
+    Título: O título ou nome do relatório para identificação e referência.
+    User
+    Data de criação: A data em que o relatório foi criado ou gerado.
+    lista
+    categoria
+    Resumo: Um resumo conciso ou sinopse do conteúdo do relatório.
+    Objetivos: Os objetivos ou propósito do relatório, incluindo o que se espera alcançar com sua elaboração.
+    Metodologia: A metodologia ou abordagem utilizada na criação do relatório, incluindo os métodos de coleta, análise e interpretação de dados.
+    Estrutura: A estrutura ou organização do relatório, incluindo seções, capítulos, tópicos ou outros elementos de organização utilizados.
+    Resultados: Os resultados ou conclusões obtidos a partir da análise dos dados apresentados no relatório.
+    Recomendações: As recomendações ou sugestões decorrentes dos resultados do relatório, indicando ações a serem tomadas ou próximos passos a serem seguidos.
+    Referências: As referências bibliográficas, fontes de dados ou outras fontes citadas no relatório.
+    Formato: O formato do relatório, como PDF, documento de texto, planilha eletrônica, apresentação de slides, entre outros.
+    Audiência-alvo: O público-alvo para o qual o relatório foi elaborado, como gerentes, equipe técnica, clientes, entre outros.
+    Idioma: O idioma em que o relatório foi elaborado.
+    Status: O status atual do relatório, como "finalizado", "em andamento", "rascunho", entre outros, indicando seu estado atual de conclusão.
