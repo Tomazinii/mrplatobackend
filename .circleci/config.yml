@@ -1,22 +1,28 @@
 version: 2.1
-executors:
-  python-executor:
-    docker:
-      - image: circleci/python:3.9
 
 jobs:
-  deploy:
-    executor: python-executor
+  build:
+    environment:
+    docker:
+      - image: circleci/python:3.8
+
+    working_directory: ~/repo
+
     steps:
       - checkout
 
-      # Instale as dependências da sua aplicação
-      - run:
-          name: Install Dependencies
-          command: pip install -r requirements.txt
+      - run: pip install -r requirements.txt
 
-      - run: ssh -oStrictHostKeyChecking=no -v $DROPLET_USER@$DROPLET_IP “./deploy_project.sh”
-      # Faça o deploy para a máquina virtual via SSH
+  deploy: 
+    docker:
+      - image: circleci/python:3.8
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - run: ssh -oStrictHostKeyChecking=no -v cedric@200.137.197.240 -p 30240 "./deploy.sh"
 
 workflows:
   build-and-deploy:
