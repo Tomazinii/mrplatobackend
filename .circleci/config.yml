@@ -1,18 +1,54 @@
-version: 2
+version: 2.1
+
 jobs:
   build:
+    environment:
+      DATABASE_URL: $DATABASE_URL
     docker:
       - image: circleci/python:3.8
+
+    working_directory: ~/repo
+
     steps:
+      - checkout
+
+      - run: pip install -r requirements.txt
+
+      - run: pytest
+
+
+  deploy:
+    docker:
+      - image: circleci/python:3.8
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
       - run:
-          name: Decodificar chave SSH
-          command: echo $SSH_PRIVATE_KEY | base64 --decode > ~/.ssh/circleci_rsa
-      - run:
-          name: Alterar permissões da chave
-          command: chmod 600 ~/.ssh/circleci_rsa
-      - run:
-          name: Adicionar chave SSH ao agente
-          command: eval "$(ssh-agent -s)"; ssh-add ~/.ssh/circleci_rsa
-      - run:
-          name: Clonar repositório
-          command: echo "asdf"
+          name: "Install AWS CLI"
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y awscli
+            sudo apt-get install -y python3-pip
+            sudo pip3 install awsebcli --upgrade
+
+      - run: ssh -oStrictHostKeyChecking=no -v cedric@200.137.197.240 -p 30240 “./deploy_project.sh”
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: feat/user
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: feat/user
+
+
+
