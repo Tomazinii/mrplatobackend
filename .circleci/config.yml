@@ -13,7 +13,7 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-  deploy: 
+  deploy:
     docker:
       - image: circleci/python:3.8
 
@@ -21,8 +21,23 @@ jobs:
 
     steps:
       - checkout
-
       - run: ssh -oStrictHostKeyChecking=no -v cedric@200.137.197.240 -p 30240 "./deploy.sh"
+
+# workflows:
+#   build-and-deploy:
+#     jobs:
+#       - build:
+#           filters:
+#             branches:
+#               only: feat/api/exercise
+#       - deploy:
+#           requires:
+#             - build
+#           filters:
+#             branches:
+#               only: feat/api/exercise
+
+
 
 workflows:
   build-and-deploy:
@@ -30,10 +45,8 @@ workflows:
       - build:
           filters:
             branches:
-              only: feat/api/exercise
+              only:
+                - master
       - deploy:
           requires:
             - build
-          filters:
-            branches:
-              only: feat/api/exercise
