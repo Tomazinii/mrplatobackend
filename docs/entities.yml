@@ -1,14 +1,14 @@
 
 # Class:
-  atributos:
+  # atributos:
 
-    ID da Turma: Um identificador único para cada turma, geralmente um número ou código alfanumérico que a diferencia das demais turmas.
+  #   ID da Turma: Um identificador único para cada turma, geralmente um número ou código alfanumérico que a diferencia das demais turmas.
 
-    Nome da Turma: O nome ou identificação da turma, que pode ser uma combinação de letras, números ou palavras, para identificá-la de forma única.
+  #   Nome da Turma: O nome ou identificação da turma, que pode ser uma combinação de letras, números ou palavras, para identificá-la de forma única.
 
-    Professor Responsável: O nome ou identificação do professor responsável pela turma, que pode ser o educador encarregado de ministrar as aulas e acompanhar o progresso dos estudantes.
+  #   Professor Responsável: O nome ou identificação do professor responsável pela turma, que pode ser o educador encarregado de ministrar as aulas e acompanhar o progresso dos estudantes.
 
-    Ano ou Período Letivo: O ano ou período letivo em que a turma está sendo oferecida, como o ano escolar, semestre ou trimestre correspondente.
+  #   Ano ou Período Letivo: O ano ou período letivo em que a turma está sendo oferecida, como o ano escolar, semestre ou trimestre correspondente.
 
 
 #User:
