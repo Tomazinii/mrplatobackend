@@ -1,7 +1,15 @@
 
 
 class User:
-    
-    def __init__(self):
-        pass
+    id = ""
+    username = ""
+    email = ""
+    photo =  ""
+    nick = ""
+    matriculation = ""
+    email = ""
+    turma = ""
+
+        
+        
         

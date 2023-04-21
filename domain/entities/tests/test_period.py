@@ -7,7 +7,7 @@ from datetime import date
 pytestmark = pytest.mark.unit
 
 def test_period_valid():
-    value_date = date(2000,5,30)
+    value_date = date(2023,5,30)
     start = value_date
     end = value_date
 

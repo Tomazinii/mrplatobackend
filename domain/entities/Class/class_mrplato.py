@@ -1,3 +1,4 @@
+from os import name
 from domain.entities.user import User
 from datetime import date as dateType
 
@@ -9,17 +10,19 @@ class Class:
     id: int
     name: str
     teacher: User
-    date: dateType
+    period: Period
 
-    def __init__(self, id: int, name: str, teacher: User, date: dateType):
+    def __init__(self, id: int, name: str, teacher: User, period: Period):
         self.id = id
         self.name = name
         self.teacher = teacher
-        self.date = date
+        self.period = period
 
     @staticmethod
-    def create(id: int, name: str, teacher: User, date: dateType):
-        if isinstance(name, str) and isinstance(id, int) and isinstance(teacher, User) and isinstance(date, Period):
-            return Class(id, name, teacher, date)
-        
-        raise ValueError("invalid type")
+    def create(id: int, name: str, teacher: User, start: dateType, end: dateType):
+        period = Period.create_period(start=start, end=end)
+        if isinstance(name, str) and isinstance(id, int) and isinstance(teacher, User) and isinstance(period, Period):
+            return Class(id, name, teacher, period)
+        raise ValueError("invalid type", name, teacher, period)
+
+

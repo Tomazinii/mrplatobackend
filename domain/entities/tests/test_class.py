@@ -18,12 +18,12 @@ class TestClass:
         name = faker.name()
         teacher = Mock(spec=User)
         period = Mock(spec=Period)
-        date = dateType(2000, 4, 10)
-        objeto = Class.create(id=id, name=name, teacher=teacher, date=period)
+        date = dateType(2023, 4, 10)
+        objeto = Class.create(id=id, name=name, teacher=teacher, start=date, end=date)
         period.get_period.return_value = {"start":date, "end": date}
         
         assert objeto.name == name
         assert objeto.teacher == teacher
         assert objeto.id == id
-        assert objeto.date.get_period()["start"] == date
-        assert objeto.date.get_period()["end"] == date
+        assert objeto.period.get_period()["start"] == date
+        assert objeto.period.get_period()["end"] == date
