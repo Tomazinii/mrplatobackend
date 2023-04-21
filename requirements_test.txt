@@ -3,6 +3,7 @@ atomicwrites==1.4.0
 attrs==21.4.0
 autobahn==22.12.1
 Automat==22.10.0
+backports.zoneinfo==0.2.1
 boto3==1.22.10
 botocore==1.25.10
 certifi==2022.12.7
@@ -50,6 +51,7 @@ packaging==21.3
 Pillow==9.3.0
 platformdirs==3.2.0
 pluggy==1.0.0
+pre-commit==3.2.2
 prettytable==3.6.0
 psycopg2==2.9.3
 psycopg2-binary==2.9.3
@@ -87,3 +89,4 @@ urllib3==1.26.13
 virtualenv==20.21.0
 wcwidth==0.2.6
 whitenoise==6.2.0
+zope.interface==5.5.2
