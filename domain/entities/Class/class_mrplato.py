@@ -1,7 +1,5 @@
-from os import name
 from domain.entities.user import User
 from datetime import date as dateType
-
 from domain.entities.objectValue import Period
 
 class Class:

@@ -4,11 +4,6 @@ Class:
 
     # Criação de turmas: A entidade "Turma" pode ser usada para criar e configurar turmas em uma plataforma educacional, atribuindo um nome, código, período letivo, disciplinas associadas, horários de aula e outros parâmetros.
 
-    # Gerenciamento de estudantes: A entidade "Turma" pode ser usada para gerenciar informações sobre estudantes matriculados em uma turma específica, como lista de estudantes, registros de presença, notas e outros dados relacionados ao desempenho acadêmico dos estudantes.
-
-    # Atribuição de professores: A entidade "Turma" pode ser usada para atribuir professores ou instrutores específicos a turmas, registrando suas informações de contato, disciplinas lecionadas, horários de aula e outras informações relevantes.
-
-    Comunicação com estudantes: A entidade "Turma" pode ser usada para facilitar a comunicação entre os estudantes matriculados em uma turma específica, permitindo o compartilhamento de informações, anúncios, dúvidas, discussões e outras formas de interação entre os estudantes.
 
 
 
