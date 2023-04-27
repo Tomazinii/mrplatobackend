@@ -1,5 +1,5 @@
 
-from users.models import RegisterStudents
+from infra.user.models import RegisterStudents
 import json
 
 

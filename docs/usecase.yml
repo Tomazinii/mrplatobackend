@@ -11,11 +11,13 @@ User:
 
     # Criação de usuarios
 
-    # Autenticação de usuário para acesso à plataforma
+    Autenticação de usuário para acesso à plataforma
 
-    # Edição do perfil de usuário, incluindo informações pessoais e preferências
+    Edição do perfil de usuário, incluindo informações pessoais e preferências
 
-    # Alteração de senha do usuário
+    Definir nickname
+
+    Alteração de senha do usuário
 
 
 
@@ -76,7 +78,7 @@ Statistic_Geral:
     Análise de estatísticas de acesso e uso de conteúdos, como número de visualizações, tempo gasto, etc.
 
 
-Ranking:
+Ranking / Score:
 
     Camada de anticorrupção para pontuação
 

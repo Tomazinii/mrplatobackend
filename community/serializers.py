@@ -1,7 +1,6 @@
-from users.models import PhotoUser
+from infra.user.models import PhotoUser,UserAccount
 from rest_framework import serializers
 from .models import Ask,Answer,ImageContent
-from users.models import UserAccount
 
 class AskSerializer(serializers.ModelSerializer):
 	resposta = serializers.SerializerMethodField("get_resposta")

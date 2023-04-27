@@ -1,6 +1,6 @@
 from django.db import models
 
-from users.models import UserAccount
+from infra.user.models import UserAccount
 
 class Group(models.Model):
     name = models.CharField(max_length=50,unique=True)

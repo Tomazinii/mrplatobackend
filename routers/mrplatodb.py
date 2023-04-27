@@ -1,5 +1,5 @@
 class FlexibleRouter:
-    route_app_labels = {'auth','contenttypes','sessions','admin','users','performance','community',"djoser","rest_framework","rest_framework_simplejwt",'token_blacklist',"corsheaders","tournamment"}
+    route_app_labels = {'auth','contenttypes','sessions','admin','user','performance','community',"djoser","rest_framework","rest_framework_simplejwt",'token_blacklist',"corsheaders","tournamment","turma"}
 
     def db_for_read(self, model, **hints):
         """

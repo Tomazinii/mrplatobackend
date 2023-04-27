@@ -1,6 +1,6 @@
 from controllers import GetListExerciseController
 from usecases import GetListExercise
-from repository.exercises import ExerciseRepository
+from infra.listexercises import ExerciseRepository
 
 def get_list_exercise_composite():
     repository = ExerciseRepository()

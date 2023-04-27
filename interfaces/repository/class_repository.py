@@ -9,8 +9,10 @@ class ClassRepository(ABC):
 
     @abstractmethod
     def update(self):
-        pass
+        raise Exception("method no implemented")
+
 
     @abstractmethod
-    def find_class_by_id(self):
-        pass
+    def find(self, id: int):
+        raise Exception("method no implemented")
+
