@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 from rest_framework import serializers
 
-from .models import PhotoUser
+from infra.user.models import PhotoUser
 
 class UserCreateSerializer(UserCreateSerializer):
     photo = serializers.SerializerMethodField("get_image")

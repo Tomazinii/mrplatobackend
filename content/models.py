@@ -5,7 +5,6 @@ from django.db import models
 from ckeditor.fields import RichTextField
 # Create your models here.
 
-from users.models import UserAccount
 
 class Content(models.Model):
     topic = models.CharField(max_length=50)

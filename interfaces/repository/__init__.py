@@ -1,2 +1,3 @@
 from .exercise_repository import ExerciseRepositoryInterface
 from .class_repository import ClassRepository
+from .user_repository import UserRepository

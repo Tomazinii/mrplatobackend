@@ -19,7 +19,7 @@ Class:
 
 User:
 
-    Validar se file é válido para submissão
+    # Validar se file é válido para submissão
 
     Regra de negócio para verificação de autenticação e autorização de um usuário ao acessar recursos ou funcionalidades da plataforma.
 

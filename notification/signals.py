@@ -5,7 +5,7 @@ from notification.models import Notification
 from django.core.mail import send_mail
 from django.conf import settings
 import json
-from users.models import RegisterStudents
+from infra.user.models import RegisterStudents
 
 from users.list_email import create_list_email
 

@@ -1,7 +1,7 @@
 from controllers import IntegrationController
 from usecases import IntegrationMrplato
 from mrplatoweb.mrplatoweb.main import ProofWindow,InputArgumentBox
-from repository.exercises import ExerciseRepository
+from infra.listexercises import ExerciseRepository
 
 def integration_mrplato_composite():
     pw = ProofWindow()

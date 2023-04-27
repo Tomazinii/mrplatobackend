@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ListExercisesConfig(AppConfig):
+class TurmaConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'entities.listexercises'
+    name = 'infra.turma'

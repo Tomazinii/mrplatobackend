@@ -19,7 +19,7 @@ class Class:
     @staticmethod
     def create(id: int, name: str, teacher: User, start: dateType, end: dateType):
         period = Period.create_period(start=start, end=end)
-        if isinstance(name, str) and isinstance(id, int) and isinstance(teacher, User) and isinstance(period, Period):
+        if isinstance(name, str)  and isinstance(period, Period):
             return Class(id, name, teacher, period)
         raise ValueError("invalid type", name, teacher, period)
 

@@ -28,12 +28,15 @@ class CreateClass(CreateClassInterface):
         Returns:
             Class
         """
+        response = None
 
         user = Mock(spec=User)        
 
         clas: Class = Class.create(id, name, user, start, end)
 
-        response = self.repository.create(id=clas.id, name=clas.name, teacher_id=clas.teacher.id, start=clas.period.get_period()["start"], end=clas.period.get_period()["end"])
+        if isinstance(clas, Class):
+
+            response = self.repository.create(id=clas.id, name=clas.name, teacher_id=clas.teacher.id, start=clas.period.get_period()["start"], end=clas.period.get_period()["end"])
 
         return response
 

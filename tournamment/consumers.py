@@ -2,7 +2,7 @@ from channels.generic.websocket import JsonWebsocketConsumer
 from asgiref.sync import async_to_sync
 from slugify import slugify
 
-from users.models import UserAccount
+from infra.user.models import UserAccount
 from tournamment.models import Group,Members
 from tournamment.serializers import GroupSerializer,MemberSerializer
 from users.serializers import UserCreateSerializer
@@ -167,7 +167,7 @@ class ChatConsumer(JsonWebsocketConsumer):
         self.send_json(event)
 
 
-from users.models import Score
+from infra.user.models import Score
 
 class GroupTournamment(JsonWebsocketConsumer):
     """

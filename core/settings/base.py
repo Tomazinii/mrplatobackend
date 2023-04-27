@@ -69,7 +69,9 @@ INSTALLED_APPS = [
     "community",
     "channels",
     "tournamment",
-    "entities.listexercises"
+    "infra.listexercises",
+    "infra.user",
+    "infra.turma",
 ]
 
 MIDDLEWARE = [
@@ -288,7 +290,7 @@ DJOSER = {
 }
 
 
-AUTH_USER_MODEL = 'users.UserAccount'
+AUTH_USER_MODEL = 'user.UserAccount'
 
 
 AUTHENTICATION_BACKENDS = (
@@ -315,7 +317,7 @@ AWS_STORAGE_BUCKET_NAME="mrplato"
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 

@@ -1,8 +1,7 @@
 from config.models import ConfigRate
 from exercises.models import Question
 
-from users.models import Score
-from users.models import UserAccount
+from infra.user.models import Score, UserAccount
 
 
 def verify_score(type,question_id,user_score):

@@ -1,1 +1,0 @@
-from .exercise_repository import ExerciseRepository

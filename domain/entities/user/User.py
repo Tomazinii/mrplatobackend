@@ -8,7 +8,7 @@ class User:
     matriculation:str
     turma:int
 
-    def __init__(self, username: str, id: int, turma: int, matriculation: str, nick: str, email: Email):
+    def __init__(self, username: str, turma: int, matriculation: str, email: Email, nick: str = None, id: int = None):
         self.id = id
         self.username = username
         self.email = email
@@ -21,7 +21,7 @@ class User:
     def create(id, usermame, email, nick, matriculation, turma):
         email_obj = Email.create(email)
         if isinstance(email_obj, Email):
-            return User(usermame, id, turma, matriculation, nick, email_obj)
+            return User(usermame, turma, matriculation, email_obj, nick, id)
         raise Exception("error")
         
 

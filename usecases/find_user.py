@@ -1,13 +1,26 @@
 from interfaces.use_case import FindUserInterface
-from interfaces.repository import 
+from interfaces.repository import UserRepository
+from domain.entities.objectValue import Email
+from domain.entities.user import User
+
 
 class FindUser(FindUserInterface):
 
-    def __init__(self, repository: ):
+    def __init__(self, repository: UserRepository):
+        self.repository = repository
 
-    def by_email(self, email: str):
+
+    def by_email(self, email: str) -> User:
+        email = Email.create(email)
+
+        if isinstance(email, Email):
+            user = self.repository.find_by_email(email=email.get_email())
+            return user
+        
+        raise Exception("Invalid email")
+
+    def by_id(self):
+        return super().by_id()
         
                 
     
-    def by_id(self):
-        return super().by_id()

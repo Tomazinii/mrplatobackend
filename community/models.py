@@ -6,7 +6,7 @@ from django.db import models
 
 # Create your models here.
 
-from users.models import UserAccount
+from infra.user.models import UserAccount
 
 from ckeditor.fields import RichTextField
 
