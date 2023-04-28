@@ -44,11 +44,11 @@ admin.site.register(UserAccount, CustomUserAdmin)
 class CustomRegisterUsers(admin.ModelAdmin):
     
     def save_model(self, request: any, obj: any, form: any, change: any) -> None:
-        
         response = admin_adapter(request, register_user_composer())
-
+        
         if response.status_code < 300:
-            return messages.SUCCESS
+            return super().save_model(request, obj, form, change)
+        
         else:
             messages.error(request, f"Erro ao registrar usuários: {response.body}")
     

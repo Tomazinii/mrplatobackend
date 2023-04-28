@@ -4,3 +4,4 @@ from .create_class import CreateClassInterface
 from .find_user import FindUserInterface
 from .register_user import RegisterUserInterface
 from .find_class import FindClassInterface
+from .register_list_exercise import RegisterListExerciseInterface

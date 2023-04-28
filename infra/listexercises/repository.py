@@ -30,7 +30,6 @@ class ExerciseRepository(ExerciseRepositoryInterface):
                 {"text": "26 - p -> q , q -> r ⊢ ~ p v r", "id": 20}
                 ]
             return list_of_problems
-        print("AQUI")
         list_of_problems = [ "1 - p → q , p ⊢ q",
             "2 - p → q , ~q ⊢ ~p",
             "3 - p → q , q → s ⊢ p → s",

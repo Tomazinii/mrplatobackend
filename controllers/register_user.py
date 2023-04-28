@@ -19,8 +19,9 @@ class RegisterController(RouteInterface):
 
 
             if "archive" in params and "turma" in params_body:
-                with request.files["archive"].open("r") as txt:
-                    array = txt.readlines()
+
+                arquivo = request.files["archive"]
+                array = arquivo.readlines()
                 array = [z.decode() for z in array]
                 class_id = int(request.body["turma"])
                 response = self.usecase.register_users(Class=class_id, file=array)

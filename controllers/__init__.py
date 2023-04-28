@@ -1,3 +1,4 @@
 from .integration_mrplato import IntegrationController
 from .get_list_exercise import GetListExerciseController
 from .register_user import RegisterController
+from .register_list_exercise import RegisterListExerciseController
