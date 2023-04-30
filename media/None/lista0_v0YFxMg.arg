@@ -1,0 +1,26 @@
+1 - p → q , p ⊢ q
+11 - ~ p -> ~ q , q ⊢ p
+12 - p v q , ~ q , p -> r ^ s ⊢ s ^ r
+13 - (r ^ ~ t ) -> ~ s , p -> s , p ^ q ⊢ ~ ( ~ t ^ r)
+14 - (r ^ s) v p , q -> ~ p , t -> ~ p , q v t ⊢ s ^ r
+15 - ~ p v ~ q , ~ r -> p , r -> ~ s , s ⊢ ~ q
+16 - p -> q v r , ~ ~ p , ~ r ⊢ q
+17 -  r -> p ^ ~ q , r v ~ s , s ⊢ ~ q ^ p
+18 -  ~ ( p ^ q) , ~ q -> r , ~ p -> r , s -> ~ r ⊢ ~ s
+19 -  p ^ ~ q , p -> ~ r , q v ~ s ⊢ ~ ( r v s )
+20 - ~ s -> ~ ( p v ~ t) , t -> q ^ r , ~s ⊢ r ^ q
+21 -  ~ p -> q , r -> q , r v ~ p , ~ q v s ⊢ s
+22 -  t ->  p ^ s , q -> ~ p , r -> ~ s , r v q ⊢ ~ t
+23 - r ->  ~ p , (r ^ s) v t , t -> q v u , ~ q ^ ~ u ⊢ ~ p
+24 -  p v q , s -> q ^ r , p -> s , q -> s ⊢ r ^ q
+25 -  ~ ( p v ~ r ) , p v q , r -> s , q ^ s -> t ^ s ⊢ s ^ t
+26 -  p -> q , q -> r ⊢ ~ p v r
+27 - r -> p ^ q , ~ p v ~ q , r v s ⊢ s 
+28 - p v q -> r , ~ r , ~ p -> s ⊢ s
+29 - (p -> q) -> r , ~ r , (~ p v q) v s ⊢ s 
+30 - ~ (p ^ q) -> (r -> s) , r ^ ~ s , q -> t ⊢ t 
+31 - p v ~ ( q v ~ r) , ~ p , r -> s v t ⊢ s v t 
+32 - p v q -> r , ~ r , q v (~ s v t) ⊢ s  -> t
+33 - p v ( ~ q -> r) , ~ ( p v s) ^ ~ r ⊢ q 
+34 - (p -> q) -> r , ~ r v s , ~(p ^ ~ q) , s v t -> u ⊢ u
+35 - ~p v q , ~ s -> ~ r , p v ( r ^ t) ⊢ q v s 

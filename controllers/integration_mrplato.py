@@ -16,9 +16,10 @@ class IntegrationController(RouteInterface):
         if request.body:
 
             params = request.body.keys()
+            print("OKOKOKO",params)
+
 
             if "sel_lines" in params and "index_exercise" in params and  "index_list_exercise" in params and "selected_rule_index" in params and "list_new_line" in params:
-
                 sel_lines = request.body["sel_lines"]
                 index_exercise = request.body["index_exercise"]
                 index_list_exercise = request.body["index_list_exercise"]

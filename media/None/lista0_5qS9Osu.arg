@@ -1,0 +1,11 @@
+25 -  ~ ( p v ~ r ) , p v q , r -> s , q ^ s -> t ^ s ⊢ s ^ t
+26 -  p -> q , q -> r ⊢ ~ p v r
+27 - r -> p ^ q , ~ p v ~ q , r v s ⊢ s 
+28 - p v q -> r , ~ r , ~ p -> s ⊢ s
+29 - (p -> q) -> r , ~ r , (~ p v q) v s ⊢ s 
+30 - ~ (p ^ q) -> (r -> s) , r ^ ~ s , q -> t ⊢ t 
+31 - p v ~ ( q v ~ r) , ~ p , r -> s v t ⊢ s v t 
+32 - p v q -> r , ~ r , q v (~ s v t) ⊢ s  -> t
+33 - p v ( ~ q -> r) , ~ ( p v s) ^ ~ r ⊢ q 
+34 - (p -> q) -> r , ~ r v s , ~(p ^ ~ q) , s v t -> u ⊢ u
+35 - ~p v q , ~ s -> ~ r , p v ( r ^ t) ⊢ q v s 

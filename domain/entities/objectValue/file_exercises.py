@@ -27,6 +27,8 @@ class FileExercise:
     @staticmethod   
     def validar_lista(lista):
         for i, linha in enumerate(lista):
+            if isinstance(linha, bytes):
+                linha = linha.decode("utf-8")
             erro = FileExercise.validar_linha(linha, i + 1)
             if erro:
                 return erro

@@ -1,21 +1,23 @@
-# import re
+# lista = [
+#     "11 - ~ p -> ~ q , q ⊢ p\n",
+#     "12 - p v q , ~ q , p -> r ^ s ⊢ s ^ r\n",
+#     "13 - (r ^ ~ t ) -> ~ s , p -> s , p ^ q ⊢ ~ ( ~ t ^ r)\n",
+#     "14 - (r ^ s) v p , q -> ~ p , t -> ~ p , q v t ⊢ s ^ r\n",
+# ]
 
-# # Define a expressão regular para o formato esperado das linhas
-# regex = r'^\d+ - '
+# lista_dict = []
 
-# # Abre o arquivo txt para leitura
-# with open('lista0.txt', 'r') as file:
-#     # Lê cada linha do arquivo
-#     for line in file:
-#         # Remove espaços em branco no começo e no fim da linha
-#         line = line.strip()
-#         # Verifica se a linha está no formato correto
-#         if not re.match(regex, line):
-#             print(f'A linha "{line}" não está no formato correto.')
+# for i, texto in enumerate(lista):
+#     texto = texto.strip()  # remove espaços no início e no final
+#     partes = texto.split(" - ")  # separa o número da fórmula
+#     num = partes[0]  # número da fórmula
+#     formula = partes[1]  # fórmula lógica
+#     lista_dict.append({"text": f"{num} - {formula}"})
+
+# print(lista_dict)
 
 
+lista = ['a', 'b', 'c', 'd']
 
-with open("lista0.arg","r",encoding="utf-8") as txt:
-    array = txt.readlines()
-
-print(array)
+for index, element in enumerate(lista):
+    print(index, element)
