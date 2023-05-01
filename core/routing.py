@@ -1,6 +1,6 @@
 from django.urls import path
 
-from tournamment.consumers import ChatConsumer,GroupTournamment
+from infra.tournamments.consumers import ChatConsumer,GroupTournamment
 
 websocket_urlpatterns = [
     path("tournamment", ChatConsumer.as_asgi()),

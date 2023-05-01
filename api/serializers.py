@@ -14,3 +14,9 @@ class ContentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Content
         fields = "__all__"
+
+
+
+# class GroupSerializer:
+
+#     def 

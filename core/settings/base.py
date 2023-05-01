@@ -65,13 +65,14 @@ INSTALLED_APPS = [
     'djoser',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
-    "users",
+    # "users",
     "community",
     "channels",
-    "tournamment",
+    # "tournamment",
     "infra.listexercises",
     "infra.user",
     "infra.turma",
+    "infra.tournamments",
 ]
 
 MIDDLEWARE = [

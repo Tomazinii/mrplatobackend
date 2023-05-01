@@ -7,6 +7,8 @@ from domain.entities.Class import Class
 
 faker = Faker()
 
+pytestmark = pytest.mark.unit
+
 def test_user_entitie():
 
     id = random.randint(0,50)

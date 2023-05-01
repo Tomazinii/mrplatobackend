@@ -23,7 +23,7 @@ class TestRegisterUser:
 
     def test_transform(self):
 
-        id = random.randint(0,150)
+        id = random.randint(0, 150)
         with open("user.txt") as txt:
             lines = txt.readlines()
         list_user_entitie = RegisterUser.create(lines, Class=id)

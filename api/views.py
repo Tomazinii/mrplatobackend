@@ -22,8 +22,8 @@ from community.serializers import AskSerializer,AnswerSerializer
 from games.models import QuestionGame,ListQuestionGame
 from games.serializers import ListGameSerializer,QuestionGameSerializer
 
-from tournamment.serializers import GroupSerializer,MemberSerializer
-from tournamment.models import Members,Group
+from infra.tournamments.serializers import GroupSerializer,MemberSerializer
+from infra.tournamments.models import Members,Group
 
 
 from community.permissions import isTestOrReadOnly
@@ -138,7 +138,7 @@ class TournammentMember(ModelViewSet):
 	
 
 from adapter import django_adapter
-from composer import integration_mrplato_composite, get_list_exercise_composite
+from composer import integration_mrplato_composite, get_list_exercise_composite, create_group_composite
 
 class IntegrationMrplatoView(APIView):
 	def get(self,request):
@@ -155,3 +155,19 @@ class ExerciseListView(APIView):
 	def get(self, request):
 		response = django_adapter(request=request, api_route=get_list_exercise_composite())
 		return Response(response.body, response.status_code)
+	
+
+
+class GroupsView(APIView):
+	
+	def post(self,request):
+		response = django_adapter(request, create_group_composite())
+		data = {
+			"name":response.body.name,
+			"slug":response.body.slug.get_slug(),
+			"turma": response.body.turma
+		}
+		if response.status_code < 300:
+			return Response(status=response.status_code, data=data)
+		else:
+			return Response(status=response.status_code, data={"error":response.body})

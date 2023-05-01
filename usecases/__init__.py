@@ -5,3 +5,4 @@ from .register_user import RegisterUser
 from .find_class import FindClass
 from .find_user import FindUser
 from .register_list_exercise import RegisterListExercise
+from .create_group import CreateGroup

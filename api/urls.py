@@ -8,6 +8,8 @@ from .views import ApiAnswerView, ApiAskView, ApiContent, ApiNotification, ApiQu
 
 from rest_framework.routers import SimpleRouter
 
+from .views import GroupsView
+
 router = SimpleRouter()
 
 router.register(r"content",ApiContent)
@@ -67,4 +69,5 @@ urlpatterns = [
     path("tournamment-member/",TournammentMember.as_view({"get":"list"})),
     path("mrplato/", IntegrationMrplatoView.as_view(), name="mrplato"),
     path("exercises/", ExerciseListView.as_view(), name="exercises"),
+    path("groups/",GroupsView.as_view(), name="groups"),
 ]

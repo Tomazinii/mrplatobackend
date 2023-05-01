@@ -5,3 +5,4 @@ from .find_user import FindUserInterface
 from .register_user import RegisterUserInterface
 from .find_class import FindClassInterface
 from .register_list_exercise import RegisterListExerciseInterface
+from .create_group import CreateGroupInterface
