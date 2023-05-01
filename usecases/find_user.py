@@ -19,8 +19,13 @@ class FindUser(FindUserInterface):
         
         raise Exception("Invalid email")
 
-    def by_id(self):
-        return super().by_id()
+    def by_id(self, id: int) -> User:
+
+        if isinstance(id, int):
+            user = self.repository.find_by_id(id)
+            return user
+        
+        raise Exception("Invalid type")
         
                 
     

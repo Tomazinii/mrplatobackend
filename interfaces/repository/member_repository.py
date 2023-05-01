@@ -1,15 +1,15 @@
 
-
 from abc import ABC, abstractmethod
+from domain.entities.tournamment import Member
 
-
-class GroupRepositoryInterface(ABC):
+class MemberRepositoryInterface(ABC):
 
     @abstractmethod
-    def add(turma, name, slug):
+    def register(user, group, online, boss) -> Member:
         raise Exception("method not implemented")
-    
+
+
     @abstractmethod
-    def find(id: int):
+    def find_user(user):
         raise Exception("method not implemented")
-    
+        

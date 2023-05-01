@@ -3,3 +3,4 @@ from .get_list_exercise import GetListExerciseController
 from .register_user import RegisterController
 from .register_list_exercise import RegisterListExerciseController
 from .create_group import CreateGroupController
+from .register_member import RegisterMemberController

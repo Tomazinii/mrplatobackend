@@ -3,3 +3,4 @@ from .get_list_exercise import get_list_exercise_composite
 from .register_user_composite import register_user_composer
 from .register_list_exercise import register_list_exercise_compisite
 from .create_group import create_group_composite
+from .register_member import register_member_composite

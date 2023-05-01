@@ -8,7 +8,7 @@ from .views import ApiAnswerView, ApiAskView, ApiContent, ApiNotification, ApiQu
 
 from rest_framework.routers import SimpleRouter
 
-from .views import GroupsView
+from .views import GroupsView,MembersView
 
 router = SimpleRouter()
 
@@ -70,4 +70,5 @@ urlpatterns = [
     path("mrplato/", IntegrationMrplatoView.as_view(), name="mrplato"),
     path("exercises/", ExerciseListView.as_view(), name="exercises"),
     path("groups/",GroupsView.as_view(), name="groups"),
+    path("members/", MembersView.as_view(), name="members")
 ]

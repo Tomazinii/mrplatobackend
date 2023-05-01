@@ -138,7 +138,7 @@ class TournammentMember(ModelViewSet):
 	
 
 from adapter import django_adapter
-from composer import integration_mrplato_composite, get_list_exercise_composite, create_group_composite
+from composer import integration_mrplato_composite, get_list_exercise_composite, create_group_composite,register_member_composite
 
 class IntegrationMrplatoView(APIView):
 	def get(self,request):
@@ -171,3 +171,22 @@ class GroupsView(APIView):
 			return Response(status=response.status_code, data=data)
 		else:
 			return Response(status=response.status_code, data={"error":response.body})
+		
+
+class MembersView(APIView):
+
+	def get(self,request):
+
+		return Response("OK")
+	
+	def post(self, request):
+		
+		response = django_adapter(request, register_member_composite())
+			
+		if response.status_code < 300:
+			data = {
+				"user":response.body[0].user.username,
+				"group":response.body[0].group.name
+			}
+			return Response(status=response.status_code, data=data)
+		return Response(status=response.status_code, data={"error": response.body})

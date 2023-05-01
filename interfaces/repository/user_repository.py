@@ -18,3 +18,8 @@ class UserRepository(ABC):
     @abstractmethod
     def find_by_email(self, email):
         raise Exception("method not implemented")
+    
+    @abstractmethod
+    def find_by_id(self, id):
+        raise Exception("method not implemented")
+        

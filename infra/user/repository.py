@@ -57,3 +57,10 @@ class UserRepository(UserRepositoryInterface):
                 return user
         except:
             raise Exception("error")
+
+    def find_by_id(self, id):
+        try:
+            user = UserAccount.objects.filter(id=id)
+            return user
+        except Exception as exc:
+            raise Exception(exc)

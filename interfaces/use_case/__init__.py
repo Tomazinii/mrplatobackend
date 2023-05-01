@@ -6,3 +6,5 @@ from .register_user import RegisterUserInterface
 from .find_class import FindClassInterface
 from .register_list_exercise import RegisterListExerciseInterface
 from .create_group import CreateGroupInterface
+from .register_member import RegisterMemberInterface
+from .find_group import FindGroupInterface

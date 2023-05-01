@@ -15,5 +15,14 @@ class GroupRepository(GroupRepositoryInterface):
             return entitie
         except Exception as exc:
             raise Exception(exc)
+        
+    @classmethod
+    def find(self, id: int):
+        if isinstance(id,int):
+            group = Group.objects.filter(id=id)
+            return group
+        raise Exception("error")
+        
+
 
         
