@@ -14,3 +14,4 @@ def register_member_composite():
     usecase = RegisterMember(reposistory=repository,usecase_find_group=usecase_find_group,usecase_find_user=usecase_find_user)
     controller = RegisterMemberController(usecase=usecase)
     return controller
+

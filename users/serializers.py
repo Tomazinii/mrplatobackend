@@ -11,8 +11,9 @@ class UserCreateSerializer(UserCreateSerializer):
     def get_image(self,obj):
         print("TESTE",obj.id)
 
-        photo = PhotoUser.objects.filter(user=obj.id)[0]
-        return str(photo.photo)
+        # photo = PhotoUser.objects.filter(user=obj.id)[0]
+        # return str(photo.photo)
+        return "asdf"
 
     class Meta(UserCreateSerializer.Meta):
         model = User

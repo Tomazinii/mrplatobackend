@@ -1,3 +1,4 @@
+from urllib import response
 from channels.generic.websocket import JsonWebsocketConsumer
 from asgiref.sync import async_to_sync
 from slugify import slugify
@@ -9,6 +10,10 @@ from users.serializers import UserCreateSerializer
 
 from exercises.models import ListTournamment,QuestionTounamment
 from exercises.serializers import ListTournammentSerializer,QuestionTournammentSerializer
+
+
+from adapter import websocket_adapter
+from composer import create_group_websocker_composite
 
 
 class ChatConsumer(JsonWebsocketConsumer):
@@ -24,13 +29,12 @@ class ChatConsumer(JsonWebsocketConsumer):
         self.numembers = 0
 
 
-
-
     def set_user_online(self,id):
         user = UserAccount.objects.filter(id=id)
         for user in user:
             user.online = True
             user.save()
+
 
     def set_user_offine(self,id):
         user = UserAccount.objects.filter(id=id)
@@ -39,20 +43,17 @@ class ChatConsumer(JsonWebsocketConsumer):
             user.save()
 
         
-
     def get_user_online(self):
         user_filter_online = UserAccount.objects.filter(online=True)
         serializer_user = UserCreateSerializer(user_filter_online,many=True)
-
         return serializer_user.data
+    
 
     def connect(self):
         self.user = self.scope["user"]
 
         if not self.user.is_authenticated:
             return
-
-
         self.set_user_online(self.user.id)
 
 
@@ -124,21 +125,19 @@ class ChatConsumer(JsonWebsocketConsumer):
         return super().disconnect(code)
 
     def receive_json(self, content, **kwargs):
+        
         if content["type"] == "createGroup":
-            name = content["content"]
-            slug = slugify(name)
-
-            group = Group.objects.get_or_create(name=name, slug=slug)
-
-  
+            data = {
+                "name": content["content"],
+                "turma": self.user.turma.id
+            }
+            response = websocket_adapter(data, gateway=create_group_websocker_composite())
 
             async_to_sync(self.channel_layer.group_send)(
                     self.room_name,
                     {
                         "type": "createGroup",
-                        "group": {"name":group[0].name,"slug":group[0].slug}
-                        
-
+                        "group": {"name":response.name,"slug":response.slug.get_slug()}
                     },
                 )
        
@@ -169,6 +168,7 @@ class ChatConsumer(JsonWebsocketConsumer):
 
 from infra.user.models import Score
 
+
 class GroupTournamment(JsonWebsocketConsumer):
     """
     This consumer is used to show user's online status,
@@ -181,7 +181,6 @@ class GroupTournamment(JsonWebsocketConsumer):
         self.user = None
         self.slug = None
         self.group = None
-
 
     def set_user_online(self,id):
         user = UserAccount.objects.filter(id=id)
@@ -336,7 +335,6 @@ class GroupTournamment(JsonWebsocketConsumer):
         if content["type"] == "question_checked":
 
             score = Score.objects.filter(type="tournamment",user_score=self.user,acert=True)
-            print("SADhbsdahbsda",score)
             lista_id = [ x.question_id for x in score ]
 
 
