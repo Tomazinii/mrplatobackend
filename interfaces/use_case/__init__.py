@@ -8,3 +8,4 @@ from .register_list_exercise import RegisterListExerciseInterface
 from .create_group import CreateGroupInterface
 from .register_member import RegisterMemberInterface
 from .find_group import FindGroupInterface
+from .select_form import SelectFormInterface

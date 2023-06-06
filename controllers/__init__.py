@@ -4,3 +4,4 @@ from .register_user import RegisterController
 from .register_list_exercise import RegisterListExerciseController
 from .create_group import CreateGroupController
 from .register_member import RegisterMemberController
+from .select_form import SelectFormController

@@ -210,7 +210,6 @@ def criateInfRules():
                 ]
     rule_table = generateInfRules(lInferRules)
 
-
     return rule_table
 
 

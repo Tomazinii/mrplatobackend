@@ -8,3 +8,4 @@ from .register_list_exercise import RegisterListExercise
 from .create_group import CreateGroup
 from .register_member import RegisterMember
 from .find_group import FindGroup
+from .select_form_mrplato import SelectForm

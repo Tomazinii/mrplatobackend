@@ -16,7 +16,7 @@ class RegisterMemberController(RouteInterface):
 
         if request.body:
             request_params = request.body.keys()
-            if "user" in request_params and "group":
+            if "user" in request_params and "group" in request_params:
                 user = request.body["user"]
                 group = request.body["group"]
                 response = self.usecase.register(user=user, group=group)
