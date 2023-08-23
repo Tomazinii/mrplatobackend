@@ -9,3 +9,4 @@ from .create_group import CreateGroup
 from .register_member import RegisterMember
 from .find_group import FindGroup
 from .select_form_mrplato import SelectForm
+from .insert_hyposthesis import InsertHypothesis

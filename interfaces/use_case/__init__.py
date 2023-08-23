@@ -9,3 +9,4 @@ from .create_group import CreateGroupInterface
 from .register_member import RegisterMemberInterface
 from .find_group import FindGroupInterface
 from .select_form import SelectFormInterface
+from .insert_hypothesis import InsertHypothesisInterface

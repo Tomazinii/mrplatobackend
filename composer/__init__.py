@@ -5,3 +5,4 @@ from .register_list_exercise import register_list_exercise_compisite
 from .create_group import create_group_composite,create_group_websocker_composite
 from .register_member import register_member_composite
 from .select_form import select_form_composite
+from .insertion_hypothesis_composite import insert_hypothesis_composite

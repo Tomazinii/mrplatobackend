@@ -7,45 +7,21 @@ Created on Thu Apr 29 08:30:41 2021
 @author: cedric
 """
 
-import kivy
-kivy.require('2.1.0')
 # Para encontrar o seu uso da versão kivy,
 # print (kivy .__ version__)
 
+
 from itertools import chain, combinations
 
-from kivy.config import Config
 import os.path
 from pathlib import Path
 import zipfile
 # from cryptography.fernet import Fernet
 
-font_file = os.path.join(kivy.kivy_data_dir, 'fonts', 'DejaVuSans.ttf')
 
-Config.set('kivy', 'default_font', ['DejaVuSans', font_file, font_file, font_file, font_file])      # changes the default_font
-Config.set('graphics', 'resizable',True) # ativar arquivo de configuração
 
-from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.label import Label
-from kivy.uix.button import Button
-from kivy.uix.checkbox import CheckBox
-from kivy.uix.spinner import Spinner
-from kivy.uix.scrollview import ScrollView
-from kivy.properties import  ObjectProperty
-from kivy.properties import  ListProperty
-from kivy.properties import  StringProperty
-from kivy.properties import  BooleanProperty
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.popup import Popup
-from kivy.core.window import Window
-from kivy.properties import NumericProperty
-from kivy.clock import Clock
-from prettytable import PrettyTable
 from datetime import datetime
 
-from kivy.utils import platform
 
 import pickle
 import copy
@@ -57,124 +33,9 @@ from . import equivRules as equiv
 from . import predRules as pred
 from . import deducInfer as ddi
 
-class LabelCheckBox(BoxLayout):
-
-    def __init__(self,text,group,ident,color,**kwargs):
-        super().__init__(**kwargs)
-        self.group = group
-        self.id = ident
-        self.text = text
-        self.background_color = color
-        self.height = self.minimum_height
-
-class RuleCheckBox(CheckBox):
-
-    def __init__(self,group,ident,**kwargs):
-        super().__init__(**kwargs)
-        self.group = group
-        self.id = ident
-
-class ProofCheckBox(CheckBox):
-
-    def __init__(self,ident,**kwargs):
-        super().__init__(**kwargs)
-        self.id = ident
-
-class OpeningScreen(Screen):
-    pass
-
-class InferRuleScreen(Screen):
-    pass
-
-class EquivRuleScreen(Screen):
-    pass
-
-class PredicateScreen(Screen):
-    pass
-
-class InferBox(ScrollView):
-
-    def __init__(self,**kwargs):
-        super().__init__(**kwargs)
-
-class EquivBox(ScrollView):
-
-    def __init__(self,**kwargs):
-        super().__init__(**kwargs)
-
-class PredBox(ScrollView):
-
-    def __init__(self,**kwargs):
-        super().__init__(**kwargs)
-
-class SelectRuleScreen(ScreenManager):
-    inferScr = ObjectProperty(None)
-
-    def switch_to_opening_screen(self):
-        self.current = 'openingScreen'
-
-    def switch_to_infer_screen(self):
-        self.current = 'inferRuleScreen'
-
-    def switch_to_equiv_screen(self):
-        self.current = 'equivRuleScreen'
-
-    def switch_to_predicate_screen(self):
-        self.current = 'predicateRuleScreen'
-
-class InputScreen(Screen):
-    pass
-
-class InputAdditionalScreen(Screen):
-    pass
-
-class ProofScreen(Screen):
-    pass
-
-class InputOrProofScreen(ScreenManager):
-    in_or_proof = ObjectProperty(None)
-
-    def switch_to_input_screen(self):
-        self.current = 'inputScreen'
-
-    def switch_to_input_add_screen(self):
-        self.current = 'inputAdditional'
-
-    def switch_to_proof_screen(self):
-        self.current = 'proofScreen'
-
-class SelectionButtons(BoxLayout):
-    conective = ObjectProperty()
-    conective = fms.GlobalConstants()
-
-class SelectionSpinner(Spinner):
-    pass
-
-class FuncSpinner(Spinner):
-    functors = ListProperty
-    functors = fms.GlobalConstants.list_of_functs
-
-class VarSpinner(Spinner):
-    variables = ListProperty
-    variables = fms.GlobalConstants.list_of_vars
-
-class QuantSpinner(Spinner):
-    quantifiers = ListProperty
-    quantifiers = fms.GlobalConstants.list_of_quants
-
-class ConstSpinner(Spinner):
-    constants = ListProperty
-    constants = fms.GlobalConstants.list_of_consts
-
-class TermSpinner(Spinner):
-    terms = ListProperty
-    terms = fms.GlobalConstants.list_of_terms
-
-class InputArgument(BoxLayout):
-    pass
 
 # -----------------------------------------------------------------------------
-class InputAdditionalForm(BoxLayout):
+class InputAdditionalForm():
     '''
         Used to implement the inference rule "addition".
         Provides a simplified version of the input interface.
@@ -253,24 +114,23 @@ class InputAdditionalForm(BoxLayout):
             return r0 and rl, None
 
 # -----------------------------------------------------------------------------
-class InputArgumentBox(BoxLayout):
+class InputArgumentBox():
     '''
     Implements the input interface.
     The user can input an argument (premisses and a conclusion)
     using menus or reading from a file.
     '''
 
-    p_button_status = BooleanProperty(None) #Premiss button
-    c_button_status = BooleanProperty(None) #Conclusion button
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.p_button_status = False
         self.c_button_status = False
+        self.input_premisses = []
 
     input_l = []
 
-    input_premisses = []
+    
     input_conclusion = ''
 
     # -----------------------------------------------------------------------------
@@ -472,29 +332,11 @@ class PrepareInput():
         return  sub_list, ind_in, ind_f
 
 # -----------------------------------------------------------------------------
-class ConclusionBar(GridLayout):
-    pass
 
-class ProofBox(ScrollView):
-
-    def __init__(self,**kwargs):
-        super().__init__(**kwargs)
-
-class StatusBar(GridLayout):
-    pass
-
-class InputStatusBar(GridLayout):
-    pass
-
-class ProofButtons(GridLayout):
-    pass
 
 # -----------------------------------------------------------------------------
 # class ProofWindow(GridLayout):
 class ProofWindow():
-    selRule = ObjectProperty()
-    input_arg = ObjectProperty()
-    time = NumericProperty(0) #Contador de tempo
     counter = 0
 
     basePath = os.path.dirname(os.path.abspath(__file__))
@@ -679,7 +521,6 @@ class ProofWindow():
         backs = 'Backs: ' + str(self.backs)
         times = 'Backs: ' + str(self.backs)
 
-        self.stopClock()
 
         # ref2 = self.ids.input_or_proof_screen.ids.proof_screen.ids.input_status_bar.ids.file_label
         # ref2.text = "File: Input from screen"
@@ -718,27 +559,13 @@ class ProofWindow():
             return
 
     # -----------------------------------------------------------------------------
-    def loadUsers(self):
-        basePath = os.path.dirname(os.path.abspath(__file__))
-        filename = 'usrs.dat'
 
-        try:
-            with open(os.path.join(basePath, filename), 'rb') as stream:
-                users = pickle.load(stream)
-                return users
-        except:
-            err_message = 'Cannot read from file: \n' + filename
-            PopupMessage(err_message, '#FF33FF')  # cor lilás
-            return
 
     # -----------------------------------------------------------------------------
-    def startClock(self):
-        self.time = 0
-        self.counter = Clock.schedule_interval(self.updateClock,1)
+
 
     # -----------------------------------------------------------------------------
-    def stopClock(self):
-        Clock.unschedule(self.counter)
+
 
     # -----------------------------------------------------------------------------
     def updateClock(self,*args):
@@ -805,7 +632,6 @@ class ProofWindow():
         if len(lines) == 1:
             return True, lines[0]
         else:
-            PopupMessage('SELECT JUST ONE PROOF LINE, PLEASE.', '#FF33FF')
             return False, 0
 
     # -----------------------------------------------------------------------------
@@ -820,8 +646,7 @@ class ProofWindow():
         r, index = self.get_just_one_selected_line(lines)
         print(f'r: {r}')
         print(f'index: {index}')
-        for p in self.proof_lines:
-            print(f'p_line: {p}\n')
+        print(f'self.proof_lines: {self.proof_lines}')
 
 
         if r0 and r:
@@ -918,15 +743,6 @@ class ProofWindow():
         print(f'r: {r}')
 
         if r:
-            ### >>>>>>>>>>CHECAR SE ISSO PODE SER EXCLUÍDO
-
-            # if type(form) is fms.Fof:
-            #     rule_type = 'PRED'
-            # if type(form) is fms.Form1 and type(form.getOpnd1()) is fms.Fof:
-            #     rule_type = 'PRED'
-            # else:
-            #     rule_type = 'EQ'
-
             r, msg, new_form = self.appRulePartial(rule_type, ruleNumber, form)
             print(f'newForm0: {new_form} - type: {type(new_form)}')
 
@@ -954,7 +770,7 @@ class ProofWindow():
                 self.lineIndex += 1  # incrementa a numeração das linhas de prova
                 # self.showNewLine(new_line, str(selectedLineNumber), ruleNumber, rule_type)
                 newLine = self.generateNewLine(new_line, str(selectedLineNumber), ruleNumber, rule_type)
-                return newLine
+                return newLine 
             else:
                 # PopupMessage(err_message, '#FF33FF')
                 print(err_message)
@@ -981,11 +797,10 @@ class ProofWindow():
             return r, ' ', new_line
         else:
             self.errors += 1
-            # ref = self.ids.input_or_proof_screen.ids.proof_screen.ids.status_bar.ids.errors_label
-            # ref.text = 'Errors: ' + str(self.errors)
+            ref = self.ids.input_or_proof_screen.ids.proof_screen.ids.status_bar.ids.errors_label
+            ref.text = 'Errors: ' + str(self.errors)
             msg = 'THE RULE <' + rule.name + '>\nCAN NOT BE APPLIED TO THIS FORMULA' + '\n PLEASE, TRY IT AGAIN.'
-            print(msg)
-            # PopupMessage(msg, '#FF33FF')  # cor lilás
+            PopupMessage(msg, '#FF33FF')  # cor lilás
             r = False
 
         return r, msg, new_line
@@ -1000,7 +815,7 @@ class ProofWindow():
         else:
             rule = self.get_rtp_rule(ruleNumber)
             # rule = self.rtp[ruleNumber]
-        # nick = rule.getNick()
+        nick = rule.getNick()
 
         # Changes line color when an hipothesys is added
         # if nick == 'ADHYP':
@@ -1024,14 +839,14 @@ class ProofWindow():
         #             color=line_color, size_hint=(.22,.15))
         # ref.add_widget(appliedRuleLabel)
         # self.line_stack.append((proofCheckBox,indexLabel,ruleNameLabel,appliedRuleLabel))
-        # print('show_new_line')
+        print('show_new_line')
         print(f'newLine: {newLine} - type {type(newLine)}')
-        # print(f'self.conclusion: {self.conclusion} - type {type(self.conclusion)}')
+        print(f'self.conclusion: {self.conclusion} - type {type(self.conclusion)}')
 
         # Changes back line color when an hipothesys is removed
-        # if (nick == 'ABsd') or (nick == 'RMHYP') :
-        #     self.colors.insert(0,self.colors[-1])
-        #     self.colors = self.colors[:-1]
+        if (nick == 'ABsd') or (nick == 'RMHYP') :
+            self.colors.insert(0,self.colors[-1])
+            self.colors = self.colors[:-1]
 
 
         if newLine == self.conclusion:
@@ -1071,10 +886,6 @@ class ProofWindow():
                 rule = self.get_rtp_rule(ruleNumber)
                 # rule = self.rtp[ruleNumber]
 
-            print('show_new_line')
-            print(f'newLine: {newLine} - type {type(newLine)}')
-            print(f'self.conclusion: {self.conclusion} - type {type(self.conclusion)}')
-
             if newLine == self.conclusion:
                 if len(self.hypothesis) != 0:
                     r = False
@@ -1084,23 +895,16 @@ class ProofWindow():
                     # PopupMessage(message, '#FF33FF')
                 else:
                     r = True
-                    # self.stopClock()
-                    # message = 'DEMONSTRATION ENDED \n\nSUCCESSFULLY in '+str(self.time)+ 's .\n\nCONGRATILATIONS !!!'
                     message = 'DEMONSTRATION ENDED \n\nSUCCESSFULLY in ' + '<<<<<time>>>>>' + 's .\n\nCONGRATILATIONS !!!'
-                    # PopupMessage(message,'#33FF33')
-                    # self.printProofTable()
 
-                #######  Correct here
-                # self.saveSolution('FINAL')
 
-                # print('solution saved')
-                # self.loadSolution()
             else:
-                r = True
+                r = False
                 message = ''
 
             print(f'GenerateNewLine: {message}')
-            return newLine
+
+            return newLine, r, message
 
     # -----------------------------------------------------------------------------
     def save_partial(self):
@@ -1112,8 +916,7 @@ class ProofWindow():
     def delLastLine(self):
 
         if len(self.line_stack) == 0:
-            # PopupMessage('YOU GOT BACK TO THE INITIAL POINT.','#FF33FF')
-            print('YOU GOT BACK TO THE INITIAL POINT.')
+            PopupMessage('YOU GOT BACK TO THE INITIAL POINT.','#FF33FF')
             return
         else:
             p = self.line_stack.pop() #remove o último conjundo de widgets (linha) da pilha
@@ -1124,8 +927,7 @@ class ProofWindow():
             if ('ABsd' in applied_rule.text) or ('RMHYP' in applied_rule.text):
                 message = 'REMOVE HYPOTHESYS CAN NOT BE UNDONE.' \
                       '\nRESTART Mr.Plato TO START \n\nTHE PROOF PROCESS AGAIN.'
-                print(message)
-                # PopupMessage(message, '#FF33FF')  # cor lilás
+                PopupMessage(message, '#FF33FF')  # cor lilás
                 self.line_stack.append(p)
                 return
             else:
@@ -1173,31 +975,39 @@ class ProofWindow():
     def appRule(self):
         print('START PROVING')
         print(f'self.selected_rule_index: {self.selected_rule_index}')
-       # kivy print(f'self.selected_rule_index: {self.selected_rule_index}')
+
+
+
+       #kivy print(f'self.selected_rule_index: {self.selected_rule_index}')
 
         try:
+
             ruleType, ruleNumber = self.selected_rule_index
+
+
             print(f'ruleType: {ruleType}')
             print(f'ruleNumber: {ruleNumber}')
             if ruleType == 'INF':
                 rule = self.rti[ruleNumber] # Selected rule
                 rule_nick = rule.getNick()
                 print(f'rule_nick: {rule_nick}')
+
             else:
                 rule_nick = 'nothing'
         except:
           #kivy  PopupMessage('CHOOSE A RULE FIRST, PLEASE.', '#FF33FF')  # cor lilás
             return False, 'CHOOSE A RULE FIRST, PLEASE.'
+        
 
 
-        for p in self.proof_lines:
-            print(f'p_line: {p}\n')
+        print(f'self.proof_lines:{self.proof_lines}')
 
         if self.proof_lines == []:
             #kivy PopupMessage('ENTER PREMISSES FIRST, PLEASE.', '#FF33FF')  # cor lilás
             print('No premisses yet')
             return False, 'ENTER PREMISSES FIRST, PLEASE.'
         if rule_nick == 'RMHYP': # Remove hypothesis inference rule
+
             r, msg, new_line = self.remove_temp_hyphotesis()
             str_lines = str(len(self.proof_lines)-1)
 
@@ -1207,13 +1017,14 @@ class ProofWindow():
             str_lines = str(len(self.proof_lines)-1)
 
             if r:
+  
                 r1, message = self.update_proof(r, new_line, str_lines)
         else:
-            print('aqui')
-            r1, message = self.app_Inf_Eq_Pred_rule(ruleType,ruleNumber)
 
-        #self.clearAllCheckBoxes()
-        return r1, message
+            r1, message, new_line = self.app_Inf_Eq_Pred_rule(ruleType,ruleNumber)
+
+        self.clearAllCheckBoxes()
+        return r1, message, new_line
 
     # -----------------------------------------------------------------------------
     def app_Inf_Eq_Pred_rule(self,ruleType,ruleNumber):
@@ -1222,16 +1033,16 @@ class ProofWindow():
 
         if self.selected_lines == []:
             #kivy PopupMessage('CHOOSE A PROOF LINE FIRST, PLEASE.', '#FF33FF')  # cor lilás
-            return False, 'CHOOSE A PROOF LINE FIRST, PLEASE.' # corrigir no mrplato
+            return False, 'CHOOSE A PROOF LINE FIRST, PLEASE.'
         else:
             if ruleType == 'INF':  # Inference rule
-                r, message = self.appInfRule(ruleNumber)
+                r, message, new_line = self.appInfRule(ruleNumber)
             elif ruleType == 'EQ':  # Equivalence rule
-                r, message = self.appEquivRule(ruleNumber)
+                r, message, new_line = self.appEquivRule(ruleNumber)
             else:  # Predicate rule
                 r, message = self.appPredRule(ruleNumber)
 
-            return r, message
+            return r, message, new_line
 
     # -----------------------------------------------------------------------------
     def update_proof(self, r,new_line,str_lines):
@@ -1286,6 +1097,8 @@ class ProofWindow():
         #     r, msg, new_line = self.remove_temp_hyphotesis()
         #     str_lines = str(len(self.proof_lines)-1)
         # else:
+
+
         for l in lines:
             proofLines.append(self.proof_lines[l])
             str_lines = ','.join(str(l) for l in lines)  # Transforma list de inteiros em string
@@ -1293,14 +1106,16 @@ class ProofWindow():
 
         print(f'proofLines: {proofLines}')
 
+        new_line = ""
+
         r, msg, new_line = ddi.applyInferRule(rule, proofLines)  # Aplica a regra selecionada nas
         print(f'new_line: {new_line}')
 
         if r:
             r1, message = self.update_proof(r, new_line, str_lines)
-            return r1, message
+            return r1, message, new_line
         else:
-            return r, msg
+            return r, msg, new_line
 
     # -----------------------------------------------------------------------------
     def remove_temp_hyphotesis(self):
@@ -1322,8 +1137,7 @@ class ProofWindow():
             message = 'NO HYPOTHESIS WHERE INTRODUCED SO FAR.' \
                       '\nTHE RULE <Remove Hypothesis> CAN NOT BE APPLIED.' \
                       + '\nPLEASE, TRY IT AGAIN.'
-            print(message)
-            # PopupMessage(message, '#FF33FF')  # cor lilás
+            PopupMessage(message, '#FF33FF')  # cor lilás
             return False, '', ''
 
     # -----------------------------------------------------------------------------
@@ -1349,15 +1163,13 @@ class ProofWindow():
                 message = 'THIS FORMULA IS NOT A CONTRADICTION.' \
                       '\nTHE RULE <Remove Hypothesis by Absurd> CAN NOT BE APPLIED.' \
                       + '\nPLEASE, TRY IT AGAIN.'
-                print(message)
-                # PopupMessage(message, '#FF33FF')  # cor lilás
+                PopupMessage(message, '#FF33FF')  # cor lilás
                 return False, '', ''
         else:
             message = 'NO HYPOTHESIS WHERE INTRODUCED SO FAR.' \
                       '\nTHE RULE <Remove Hypothesis by Absurd> CAN NOT BE APPLIED.' \
                       + '\nPLEASE, TRY IT AGAIN.'
-            print(message)
-            # PopupMessage(message, '#FF33FF')  # cor lilás
+            PopupMessage(message, '#FF33FF')  # cor lilás
             return False, '', ''
 
     # -----------------------------------------------------------------------------
@@ -1525,8 +1337,7 @@ class ProofWindow():
             self.update_proof(r, new_first_order_form, str(line))
             return
         else:
-            # PopupMessage(msg, '#FF33FF')  # cor lilás
-            print(msg)
+            PopupMessage(msg, '#FF33FF')  # cor lilás
             return
 
     #
@@ -1724,8 +1535,7 @@ class ProofWindow():
             self.update_proof(r, new_formula, str(line))
             return
         else:
-            print(msg)
-            # PopupMessage(msg, '#FF33FF')  # cor lilás
+            PopupMessage(msg, '#FF33FF')  # cor lilás
             return
 
     # -----------------------------------------------------------------------------
@@ -1848,7 +1658,6 @@ class ProofWindow():
 
     # -----------------------------------------------------------------------------
     def appEquivRule(self, ruleNumber):
-
         print('PROVANDO EQUIVALÊNCIAS')
 
         r0, lines = self.get_selected_lines(self) # Checks if the  selected line is forbidden
@@ -1859,6 +1668,7 @@ class ProofWindow():
         print(f'r: {r}')
 
         if r0 and r:
+
             rule = self.rte[ruleNumber]  # Selected rule
             print(f'rule: {rule}')
             print(f'premisses: {self.proof_lines}')
@@ -1878,9 +1688,10 @@ class ProofWindow():
 
             if r:
                 r1, message = self.update_proof(r, new_line, str(index))
-                return  r1, message
+                return  r1, message, new_line
             else:
-                return r, msg
+                return r, msg, new_line
+        
 
     def initInfTable(self,infckb_ref,rti):
         i=0
@@ -2200,6 +2011,9 @@ class ProofWindow():
     # -----------------------------------------------------------------------------
     def n_prove_an_argument(self,in_box,line):
 
+        print(f'Proving line: {line}')
+
+        print(f'line: {line}')
         # handle = args[0]
         # base = args[1]
         # problemListName = args[2]
@@ -2209,6 +2023,7 @@ class ProofWindow():
         # print(f'line: {line}')
 
         lp = line.split(' - ') # lp = (index, arg)
+        print(f'lp: {lp}')
 
         try:
             index = int(lp[0])
@@ -2617,68 +2432,6 @@ class popupConfirmationDialog():
     def get_answer(self):
         return(self.answer)
 
-# -----------------------------------------------------------------------------
-class PopupMessage():
-
-    def __init__(self, message,color):
-        self.message = message
-        self.color = color
-
-        popup = Popup(title='WARNING',
-                      background_color=color,
-                      content=Label(text=message),
-                      size_hint=(.9, .4))
-        popup.open()
-
-# -----------------------------------------------------------------------------
-class PopupGetSubformula(Popup):
-    pass
-
-class PopupGetSubformula2(Popup):
-    options = ListProperty()
-    original_form = StringProperty()
-    pass
-
-class PopupGetNewTerm(Popup):
-    pass
-
-class PopupGetQuantifier(Popup):
-    options = ListProperty()
-    title = StringProperty()
-    pass
-
-class PopupGetOption(Popup):
-    options = ListProperty()
-    title = StringProperty()
-    pass
-
-class PopupInputForm(Popup):
-    newForm = ObjectProperty()
-    pass
-
-# -----------------------------------------------------------------------------
-class MrPlatoApp(App):
-
-    Config.set('kivy', 'exit_on_escape', '0')
-
-
-    # else:
-    #     Window.size = dp(500), dp(1000)
-
-
-    # -----------------------------------------------------------------------------
-    def build(self):
-        self.root = ProofWindow()
-        self.icon = 'mrplato.png'
-        return self.root
-
-    # -----------------------------------------------------------------------------
-    # method which will render our application
-    def close_application(self):
-        # closing application
-        App.get_running_app().stop()
-        # removing window
-        Window.close()
 
 # If you want to dynamically change the title, you can do:
 #
@@ -2779,28 +2532,28 @@ in_box = InputArgumentBox()
 
 
 #inserindo nova hipótese
-list_of_problems = ['1 - p → q , q → r  ⊢ p -> r']
-line = list_of_problems[0] # problema selecionado
+# list_of_problems = ['1 - p → q , q → r  ⊢ p -> r']
+# line = list_of_problems[0] # problema selecionado
 
-sel_rule = 0 # regra selecionada ADHYP
-sel_lines = [0] # linhas de prova selecionadas
+# sel_rule = 0 # regra selecionada ADHYP
+# sel_lines = [0] # linhas de prova selecionadas
 
-pw.selected_lines = sel_lines
-pw.selected_rule_index = ('INF', sel_rule)
-pw.infCheckBox = sel_rule
+# pw.selected_lines = sel_lines
+# pw.selected_rule_index = ('INF', sel_rule)
+# pw.infCheckBox = sel_rule
 
-pw.n_prove_an_argument(in_box,line)
-inForm = InputAdditionalForm()
-inForm.input_l = ['p'] # hypótese inserida pelo usuário
+# pw.n_prove_an_argument(in_box,line)
+# inForm = InputAdditionalForm()
+# inForm.input_l = ['p'] # hypótese inserida pelo usuário
 
-print('APLYING THE RULE')
-r, newHypothesys = inForm.inputAditionalFormulaOrHyphotesis(pw)
-print(f'NewHYp: {newHypothesys}')
+# print('APLYING THE RULE')
+# r, newHypothesys = inForm.inputAditionalFormulaOrHyphotesis(pw)
+# print(f'NewHYp: {newHypothesys}')
 
-if r:
-    print('Processing ended with success!')
-else:
-    print('PROCESSING ENDED WITH UNSUCESS!')
-    print('DIAGNOSYS: ',msg)
+# if r:
+#     print('Processing ended with success!')
+# else:
+#     print('PROCESSING ENDED WITH UNSUCESS!')
+#     print('DIAGNOSYS: ',msg)
 
 #Removendo uma hipótese
