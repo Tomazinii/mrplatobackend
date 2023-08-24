@@ -67,7 +67,6 @@ class InputAdditionalForm():
         app = proofWindRef #mrplatoweb
         # print(f'app: {app}')
         # print(f'self.input_l : {self.input_l}')
-
         selected_rule = app.selected_rule_index
         ruleType, ruleNumber = selected_rule
         rule_nick = app.rti[ruleNumber].getNick()
@@ -109,7 +108,9 @@ class InputAdditionalForm():
             # app.clearAllCheckBoxes() #kivy
            # self.ids.in_new_form.text = 'Add ADDITIONAL FORMULA' #mrplato
             self.input_l = []
-            return r, add_form
+            if r:
+                return r, add_form
+            return r,"None"
         else:
             return r0 and rl, None
 
