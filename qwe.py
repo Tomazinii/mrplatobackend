@@ -79,7 +79,8 @@ pw.selected_rule_index = ('INF', sel_rule)
 pw.infCheckBox = sel_rule
 
 inForm = InputAdditionalForm()
-inForm.input_l = ['∼', ['p', '∧', 'q']] # hypótese inserida pelo usuário
+# inForm.input_l = ['∼', ['p', '∧', 'q']] # hypótese inserida pelo usuário
+inForm.input_l = [['p', '∧', 'q']] # hypótese inserida pelo usuário
 
 print('APLYING THE RULE')
 r, newHypothesys = inForm.inputAditionalFormulaOrHyphotesis(pw)
